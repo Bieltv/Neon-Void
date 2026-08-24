@@ -1,0 +1,72 @@
+[
+    {
+        "id": "#T001",
+        "versao": "1.0.0",
+        "nome": "LASER CIANO",
+        "cor": "#00f0ff",
+        "desbloqueadaPadrao": true,
+        "isRgb": false,
+        "linhasTiro": 1,
+        "atributos": {
+            "DANO": "1",
+            "LINHAS DE TIRO": "1"
+        }
+    },
+    {
+        "id": "#T002",
+        "versao": "1.0.0",
+        "nome": "LASER SPECTRUM RGB",
+        "cor": "rgb",
+        "requerPasse": true,
+        "mesPasse": "Setembro_2026",
+        "isRgb": true,
+        "linhasTiro": 2,
+        "atributos": {
+            "DANO": "2",
+            "LINHAS DE TIRO": "2"
+        },
+        "paletaCores": [
+            "#ffe600",
+            "#ff00ff",
+            "#00ff66",
+            "#00f0ff",
+            "#ffffff",
+            "#ff3300"
+        ]
+    },
+    {
+        "id": "#T003",
+        "versao": "1.1.0",
+        "nome": "Chama Solar",
+        "tipo": "passe",
+        "requerPasse": true,
+        "mesPasse": "Outubro_2026",
+        "cor": "#ff5500",
+        "linhasTiro": 2,
+        "atributos": {
+            "DANO": "2",
+            "LINHAS DE TIRO": "2"
+        }
+    },
+    {
+        "id": "#T004",
+        "versao": "1.0.0",
+        "nome": "Jato Relativístico",
+        "categoria": "tiro",
+        "raridade": "mítica",
+        "desbloqueadaPadrao": false,
+        "tipo": "projetil",
+        "corNucleo": "#ffffff",
+        "corAura": "#fff3b0",
+        "corBrilho": "#ffb000",
+        "shadowBlur": 15,
+        "geometria": {
+            "largura": 6,
+            "comprimento": 34
+        },
+        "atributos": {
+            "DANO": "3",
+            "LINHAS DE TIRO": "1"
+        }
+    }
+]

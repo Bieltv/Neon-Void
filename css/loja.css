@@ -1,0 +1,545 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace, cursive;
+    user-select: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #08080c;
+    background-image: radial-gradient(circle at 50% 50%, #1a102f 0%, #050508 100%);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* ECONOMIA FIXA */
+.central-economia {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    display: flex;
+    gap: 15px;
+    z-index: 999;
+}
+
+.card-moeda {
+    background-color: #11111a;
+    border: 2px solid #333344;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.75rem;
+}
+
+.card-moeda.ouro {
+    border-color: #ffd700;
+    color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.card-moeda.diamante {
+    border-color: #00f0ff;
+    color: #00f0ff;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+/* BOTÃO VOLTAR */
+.btn-voltar {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    padding: 12px 18px;
+    background-color: #0c0c14;
+    border: 2px solid #c0c0c0;
+    color: #e0e0e0;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: 0.2s;
+    z-index: 999;
+}
+
+.btn-voltar:hover {
+    background-color: rgba(192, 192, 192, 0.18);
+    color: #ffffff;
+    border-color: #ffffff;
+    box-shadow: 0 0 15px #c0c0c0;
+    transform: scale(1.05);
+}
+
+.loja-wrapper {
+    margin-top: 60px;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.titulo-loja {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffffff, 0 0 25px #c0c0c0;
+}
+
+/* ABAS DE NAVEGAÇÃO */
+.navegacao-abas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    border-bottom: 2px solid #222233;
+    padding-bottom: 15px;
+}
+
+.btn-aba {
+    padding: 12px 20px;
+    background-color: #0c0c14;
+    border: 2px solid #33334d;
+    color: #8888a0;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: 0.2s;
+}
+
+.btn-aba:hover {
+    border-color: #00f0ff;
+    color: #00f0ff;
+}
+
+.btn-aba.ativa {
+    border-color: #00ff66;
+    color: #00ff66;
+    box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
+    background-color: rgba(0, 255, 102, 0.1);
+}
+
+.secao-aba {
+    display: none;
+}
+
+.secao-aba.ativa {
+    display: block;
+}
+
+.grid-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* CARDS NORMAIS */
+.card-item {
+    background-color: #11111a;
+    border: 2px solid #2a2a3d;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: 88px;
+    box-shadow: inset 4px 0 #00f0ff;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.card-item:hover {
+    transform: translateX(5px);
+    border-color: #00f0ff;
+    box-shadow: inset 4px 0 #00f0ff, 0 0 14px rgba(0, 240, 255, 0.25);
+}
+
+.contador-card {
+    color: #ffe600;
+    font-size: 0.5rem;
+    white-space: nowrap;
+}
+
+/* CARD DE EVENTO COM FUNDO VERMELHO */
+.card-item.card-evento {
+    background: linear-gradient(135deg, #400505 0%, #1a0202 100%);
+    border: 2px solid #ff3333;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.3);
+}
+
+.card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card-nome {
+    font-size: 0.75rem;
+    color: #ffffff;
+}
+
+.card-desc {
+    font-size: 0.55rem;
+    color: #aaaabb;
+    line-height: 1.2;
+}
+
+.btn-acao-card {
+    padding: 10px 14px;
+    background-color: #0c0c14;
+    border: 2px solid #00ff66;
+    color: #00ff66;
+    cursor: pointer;
+    font-size: 0.6rem;
+    transition: 0.2s;
+}
+
+.btn-acao-card.btn-evento {
+    border-color: #ff3333;
+    color: #ff3333;
+}
+
+.btn-acao-card.btn-evento:hover {
+    background-color: rgba(255, 51, 51, 0.2);
+    box-shadow: 0 0 12px #ff3333;
+}
+
+.btn-acao-card.adquirido {
+    border-color: #555566 !important;
+    color: #888899 !important;
+    background-color: #1a1a24 !important;
+    cursor: default !important;
+}
+
+/* MODAL DA ROLETA */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(5, 5, 8, 0.9);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-overlay.oculto {
+    display: none;
+}
+
+.modal-roleta-conteudo {
+    position: relative;
+    background-color: #0a0a12;
+    border: 2px solid #ff3333;
+    box-shadow: 0 0 30px rgba(255, 51, 51, 0.4);
+    padding: 30px 20px;
+    width: 90%;
+    max-width: 650px;
+}
+
+.btn-fechar-x {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #ff3333;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.roleta-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+/* COLUNA ESQUERDA: BOTÃO GIRAR */
+.roleta-coluna-esquerda {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.saldo-roleta {
+    color: #00f0ff;
+    font-size: 0.55rem;
+    text-align: center;
+}
+
+.saldo-roleta strong {
+    display: block;
+    margin-top: 8px;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.acoes-roleta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-girar {
+    padding: 15px 12px;
+    background-color: #1a0505;
+    border: 2px solid #ff3333;
+    color: #ff3333;
+    font-size: 0.65rem;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.6;
+    box-shadow: 0 0 10px rgba(255, 51, 51, 0.3);
+    transition: 0.2s;
+}
+
+.btn-girar:hover {
+    background-color: #ff3333;
+    color: #000000;
+    box-shadow: 0 0 20px #ff3333;
+}
+
+/* COLUNA CENTRO: ROLETA */
+.roleta-coluna-centro {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ponteiro-roleta {
+    color: #ff3333;
+    font-size: 1.2rem;
+    margin-bottom: -5px;
+    z-index: 2;
+    text-shadow: 0 0 8px #ff3333;
+}
+
+#canvas-roleta {
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.5);
+}
+
+/* COLUNA DIREITA: SKIN E PORCENTAGEM */
+.roleta-coluna-direita {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.card-skin-destaque-roleta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid #00f0ff;
+    padding: 12px;
+    background-color: #080812;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+}
+
+.label-skin {
+    font-size: 0.6rem;
+    color: #00f0ff;
+}
+
+.preview-box {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tag-porcentagem {
+    font-size: 0.75rem;
+    color: #00ff66;
+    text-shadow: 0 0 8px #00ff66;
+}
+
+/* MODAL DE SUCESSO */
+.modal-conteudo {
+    background-color: #0c0c14;
+    border: 2px solid #00ff66;
+    box-shadow: 0 0 25px rgba(0, 255, 102, 0.4);
+    padding: 25px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.modal-conteudo h3 {
+    font-size: 0.85rem;
+    color: #00ff66;
+    text-shadow: 0 0 10px #00ff66;
+}
+
+.modal-preview {
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo p {
+    font-size: 0.65rem;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+.btn-modal {
+    padding: 10px 18px;
+    background-color: #11111a;
+    border: 2px solid #00ff66;
+    color: #00ff66;
+    font-size: 0.65rem;
+    cursor: pointer;
+}
+
+.btn-modal:hover {
+    background-color: rgba(0, 255, 102, 0.2);
+    box-shadow: 0 0 12px #00ff66;
+}
+
+.btn-girar-5x {
+    border-color: #ffe600;
+    color: #ffe600;
+}
+
+.btn-girar-5x:hover {
+    background-color: #ffe600;
+    box-shadow: 0 0 20px #ffe600;
+}
+
+.lista-recompensas-roleta {
+    min-width: 190px;
+    border: 1px solid #333344;
+    padding: 9px;
+    font-size: 0.45rem;
+    line-height: 1.8;
+}
+
+.lista-recompensas-roleta div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.lista-recompensas-roleta strong {
+    color: #00ff66;
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 20px 15px;
+    }
+
+    .central-economia {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 15px;
+        justify-content: center;
+    }
+
+    .btn-voltar {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin-bottom: 15px;
+        font-size: 0.65rem;
+        padding: 10px 14px;
+    }
+
+    .loja-wrapper {
+        margin-top: 0;
+        max-width: 100%;
+    }
+
+    .titulo-loja {
+        font-size: 1.5rem;
+    }
+
+    .navegacao-abas {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .btn-aba {
+        font-size: 0.65rem;
+        padding: 10px 14px;
+    }
+
+    .card-item {
+        flex-wrap: wrap;
+        padding: 12px;
+        min-height: auto;
+    }
+
+    .contador-card {
+        order: 4;
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .roleta-layout {
+        flex-direction: column;
+    }
+
+    .roleta-coluna-direita,
+    .roleta-coluna-esquerda {
+        width: 100%;
+    }
+
+    .acoes-roleta {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .modal-roleta-conteudo {
+        padding: 20px 15px;
+        width: 95%;
+    }
+
+    .btn-girar {
+        font-size: 0.6rem;
+        padding: 12px 10px;
+    }
+
+    .card-skin-destaque-roleta {
+        padding: 10px;
+    }
+
+    .preview-box {
+        width: 50px;
+        height: 50px;
+    }
+
+    .lista-recompensas-roleta {
+        min-width: auto;
+        width: 100%;
+        font-size: 0.4rem;
+    }
+
+    .modal-conteudo {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .modal-conteudo h3 {
+        font-size: 0.75rem;
+    }
+
+    .modal-conteudo p {
+        font-size: 0.6rem;
+    }
+}

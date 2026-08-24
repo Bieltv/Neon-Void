@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Void | Inicializando</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            --fundo: #070b16;
+            --painel: #0d1424;
+            --ciano: #00f0ff;
+            --magenta: #ff0055;
+            --texto: #e8fbff;
+            --muted: #7894a8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            color: var(--texto);
+            background: radial-gradient(circle at 18% 20%, #102c3b 0, transparent 34%),
+                radial-gradient(circle at 82% 78%, #321127 0, transparent 30%), var(--fundo);
+            font-family: "Press Start 2P", monospace;
+        }
+
+        .tela {
+            width: min(680px, 90vw);
+            text-align: center;
+            animation: surgir 1.8s ease both;
+        }
+
+        .marca {
+            margin: 0;
+            color: var(--ciano);
+            font: 400 clamp(1.45rem, 6vw, 3.2rem)/1.35 "Press Start 2P", monospace;
+            letter-spacing: 0;
+            text-shadow: 0 0 10px var(--ciano), 0 0 34px #008da0;
+        }
+
+        .status {
+            min-height: 1.5em;
+            margin: 1.3rem 0 2rem;
+            color: var(--muted);
+            font-size: .65rem;
+            line-height: 1.8;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+
+        .carregamento {
+            position: fixed;
+            right: 0;
+            bottom: 14px;
+            left: 0;
+            height: 6px;
+            background: #142033;
+            box-shadow: 0 0 16px #00f0ff33;
+        }
+
+        .progresso {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--magenta), var(--ciano));
+            box-shadow: 0 0 14px var(--ciano);
+            transition: width .18s linear;
+        }
+
+        .atualizacao {
+            display: none;
+            margin: 0 auto;
+            padding: 1.4rem;
+            border: 1px solid var(--magenta);
+            background: #160c1aee;
+            box-shadow: 0 0 24px #ff005533;
+        }
+
+        .atualizacao h2 {
+            margin: 0 0 .7rem;
+            color: #ff668f;
+            font-size: 1rem;
+            letter-spacing: .12em;
+        }
+
+        .atualizacao p {
+            margin: 0 0 1rem;
+            color: var(--muted);
+            font-size: .65rem;
+            line-height: 1.8;
+        }
+
+        .contagem {
+            display: block;
+            margin: 0 0 1.2rem;
+            color: var(--ciano);
+            font-size: .7rem;
+        }
+
+        .atualizacao button {
+            border: 1px solid var(--ciano);
+            padding: .7rem 1rem;
+            color: var(--ciano);
+            background: transparent;
+            cursor: pointer;
+            font: .62rem "Press Start 2P", monospace;
+        }
+
+        .atualizacao button:hover {
+            background: #00f0ff18;
+        }
+
+        body.modo-atualizacao .atualizacao {
+            display: block;
+        }
+
+        body.modo-atualizacao .carregamento {
+            display: none;
+        }
+
+        @keyframes surgir {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="tela" aria-live="polite">
+        <h1 class="marca">NEON VOID</h1>
+        <p class="status" id="status">Sincronizando banco de dados...</p>
+        <section class="atualizacao" id="atualizacao" aria-live="assertive">
+            <h2>ATUALIZAÇÃO NECESSÁRIA</h2>
+            <p id="mensagem-atualizacao">Esta versão do jogo precisa ser atualizada para continuar.</p>
+            <strong class="contagem" id="contagem-atualizacao"></strong>
+            <button id="btn-atualizar" type="button">TENTAR NOVAMENTE</button>
+        </section>
+    </main>
+    <div class="carregamento" aria-label="Carregamento">
+        <div class="progresso" id="progresso"></div>
+    </div>
+
+    <script>
+        (() => {
+            const progresso = document.getElementById('progresso');
+            const status = document.getElementById('status');
+            const botaoAtualizar = document.getElementById('btn-atualizar');
+            const mensagemAtualizacao = document.getElementById('mensagem-atualizacao');
+            const contagemAtualizacao = document.getElementById('contagem-atualizacao');
+            const DURACAO_CARREGAMENTO = 10000;
+            const CONFIGURACAO_PADRAO = {
+                versaoAtual: '1.0.0',
+                versaoMinima: '1.0.0',
+                atualizar: false,
+                atualizacaoAgendada: { ativa: false, inicio: null, duracaoMinutos: 0 }
+            };
+
+            function compararVersoes(a, b) {
+                const partesA = String(a || '0.0.0').split('.').map(Number);
+                const partesB = String(b || '0.0.0').split('.').map(Number);
+                for (let indice = 0; indice < 3; indice += 1) {
+                    const valorA = Number.isFinite(partesA[indice]) ? partesA[indice] : 0;
+                    const valorB = Number.isFinite(partesB[indice]) ? partesB[indice] : 0;
+                    if (valorA !== valorB) return valorA - valorB;
+                }
+                return 0;
+            }
+
+            function obterJanelaAtualizacao(configuracao) {
+                const agendamento = configuracao.atualizacaoAgendada;
+                if (!agendamento || agendamento.ativa !== true || !agendamento.inicio) return null;
+                const inicio = new Date(agendamento.inicio).getTime();
+                const fim = inicio + Math.max(Number(agendamento.duracaoMinutos) || 0, 0) * 60000;
+                if (!Number.isFinite(inicio) || !Number.isFinite(fim) || Date.now() < inicio || Date.now() >= fim) return null;
+                return { inicio, fim };
+            }
+
+            function exibirTelaAtualizacao(configuracao, janela) {
+                document.body.classList.add('modo-atualizacao');
+                status.textContent = janela ? 'Atualização programada em andamento' : 'Banco de dados incompatível';
+                if (configuracao.atualizacaoAgendada?.mensagem) mensagemAtualizacao.textContent = configuracao.atualizacaoAgendada.mensagem;
+                if (janela) {
+                    const atualizarContagem = () => {
+                        const restante = Math.max(janela.fim - Date.now(), 0);
+                        const minutos = Math.floor(restante / 60000);
+                        const segundos = Math.floor((restante % 60000) / 1000).toString().padStart(2, '0');
+                        contagemAtualizacao.textContent = `RETORNO ESTIMADO: ${minutos}M ${segundos}S`;
+                        if (restante <= 0) window.location.reload();
+                    };
+                    atualizarContagem();
+                    setInterval(atualizarContagem, 1000);
+                }
+            }
+
+            async function iniciar() {
+                let configuracao = CONFIGURACAO_PADRAO;
+                try {
+                    const resposta = await fetch('data/versao.json', { cache: 'no-store' });
+                    if (resposta.ok) configuracao = { ...configuracao, ...await resposta.json() };
+                } catch (erro) {
+                    console.warn('Não foi possível ler o controle de versão:', erro);
+                }
+
+                const versaoInstalada = localStorage.getItem('nv_versao_dados') || configuracao.versaoAtual;
+                const janelaAtualizacao = obterJanelaAtualizacao(configuracao);
+                const precisaAtualizar = configuracao.atualizar === true || janelaAtualizacao ||
+                    compararVersoes(versaoInstalada, configuracao.versaoMinima) < 0;
+                if (precisaAtualizar) {
+                    exibirTelaAtualizacao(configuracao, janelaAtualizacao);
+                    return;
+                }
+
+                localStorage.setItem('nv_versao_dados', configuracao.versaoAtual);
+                let valor = 0;
+                const inicioCarregamento = Date.now();
+                const temporizador = setInterval(() => {
+                    valor = Math.min(((Date.now() - inicioCarregamento) / DURACAO_CARREGAMENTO) * 100, 100);
+                    progresso.style.width = `${valor}%`;
+                    if (valor >= 100) {
+                        clearInterval(temporizador);
+                        status.textContent = 'Carregamento concluído';
+                        setTimeout(() => { window.location.href = 'UI/menu.html'; }, 700);
+                    }
+                }, 100);
+            }
+
+            botaoAtualizar.addEventListener('click', () => {
+                window.location.reload();
+            });
+            iniciar();
+        })();
+    </script>
+</body>
+
+</html>

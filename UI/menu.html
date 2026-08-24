@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Void - Menu Principal</title>
+
+    <!-- Pré-conexão para evitar erro de decodificação/CORS no Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/menu.css">
+</head>
+
+<body>
+
+    <!-- CENTRAL DE ECONOMIA (Fixo na Tela) -->
+    <div class="central-economia">
+        <div class="card-moeda ouro">
+            <span class="icone-moeda">🪙</span>
+            <span id="saldo-moedas">0</span>
+        </div>
+        <div class="card-moeda diamante">
+            <span class="icone-moeda">💎</span>
+            <span id="saldo-diamantes">0</span>
+        </div>
+    </div>
+
+    <!-- PAINEL CENTRAL DO MENU -->
+    <main class="menu-container">
+        <h1 class="logo-neon">NEON VOID</h1>
+
+        <nav class="gaveta-botoes">
+            <button class="btn-menu btn-jogar" data-action="jogar">JOGAR</button>
+            <button class="btn-menu btn-config" data-action="configuracoes">CONFIGURAÇÕES</button>
+            <button class="btn-menu btn-loja" data-action="loja">LOJA</button>
+            <button class="btn-menu btn-passe" data-action="passe">PASSE DE BATALHA</button>
+            <button class="btn-menu btn-skins" data-action="skins">SKINS</button>
+            <button class="btn-menu btn-sair" data-action="sair">SAIR</button>
+            <!-- BOTÃO DE EVENTOS (Fixo no Canto Superior Direito) -->
+            <button class="btn-evento" id="btn-evento" title="Eventos">
+                <span>🎁</span>
+            </button>
+            <button class="btn-inbox" id="btn-inbox" title="Caixa de entrada">
+                <span>✉</span><i id="badge-inbox" hidden></i>
+            </button>
+            <button class="btn-store-externa" id="btn-store-externa" title="Store externa">
+                <span>🛒</span>
+            </button>
+        </nav>
+    </main>
+
+    <div id="modal-inbox" class="modal-inbox" hidden>
+        <div class="inbox-card">
+            <button id="fechar-inbox" class="fechar-inbox" title="Fechar">×</button>
+            <p class="inbox-label">CAIXA DE ENTRADA</p>
+            <h2>Mensagens e atualizações</h2>
+            <div id="lista-mensagens" class="lista-mensagens"></div>
+        </div>
+    </div>
+
+    <!-- RODAPÉ (Fixo na Tela) -->
+    <footer class="creditos-rodape">
+        <span>© Neon Void | Ver: Beta 1.6.3</span>
+    </footer>
+
+    <script src="../js/conta.js"></script>
+    <script src="../js/economia.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/controle-versao.js"></script>
+</body>
+
+</html>

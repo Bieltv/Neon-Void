@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Void Store</title>
+    <link rel="stylesheet" href="store.css">
+</head>
+
+<body>
+    <header class="topbar"><a href="../UI/menu.html">NEON VOID</a><span>STORE / EXTERNA</span></header>
+    <main>
+        <section id="gate" class="gate">
+            <p class="kicker">DESTINO DE ENTREGA</p>
+            <h1>Para qual conta?</h1>
+            <p>Informe o Neon ID. Depois confirme a entrada na caixa de entrada do menu do jogo.</p>
+            <form id="form-destino"><input id="id-destino" placeholder="ND-0001" autocomplete="off"
+                    required><button>ENVIAR PARA CONFIRMAÇÃO</button></form>
+            <p id="status-gate" class="status"></p>
+            <a href="../Neon ID/neonID.HTML">Criar uma conta Neon ID</a>
+        </section>
+
+        <section id="store-content" hidden>
+            <div class="store-heading">
+                <div>
+                    <p class="kicker">CONTA AUTORIZADA</p>
+                    <h1 id="conta-nome">STORE</h1>
+                </div>
+                <div class="saldo"><span id="saldo-tickets">0</span> TICKETS <strong><span id="saldo-diamantes">0</span>
+                        💎</strong></div>
+            </div>
+            <section class="guess-panel">
+                <div>
+                    <p class="kicker">CONTRATO DIÁRIO</p>
+                    <h2>ADIVINHE O NÚMERO</h2>
+                    <p>Escolha um número de 1 a 200. Acertou? +1 ticket. Você tem 40 tentativas por dia.</p>
+                </div>
+                <div id="opcoes-palpite" class="opcoes-palpite" aria-label="Escolha um número"></div>
+                <p id="resultado-palpite" class="status"></p><small id="tentativas"></small>
+            </section>
+            <section>
+                <div class="section-title">
+                    <p class="kicker">CATÁLOGO</p>
+                    <h2>Diamantes e temporada</h2>
+                </div>
+                <div id="catalogo" class="catalogo"></div>
+            </section>
+        </section>
+    </main>
+    <script src="../js/conta.js"></script>
+    <script src="store.js"></script>
+    <script src="../js/controle-versao.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+{
+    "versao": "1.0.0",
+    "eventos": {
+        "ev_modo_caos_2026": {
+            "comuns": [
+                {
+                    "id": "caos_batedor",
+                    "nome": "Batedor Caótico",
+                    "tamanho": 24,
+                    "velocidadeBase": 2.2,
+                    "vida": 1,
+                    "pontos": 100,
+                    "cor": "#ff0055"
+                },
+                {
+                    "id": "caos_perseguidor",
+                    "nome": "Orbe de Ruptura",
+                    "tipo": "perseguidor_explosivo",
+                    "tamanho": 28,
+                    "velocidadeBase": 1.8,
+                    "vida": 3,
+                    "pontos": 250,
+                    "cor": "#ff8c00",
+                    "tempoExplosao": 1.2
+                }
+            ],
+            "bosses": [
+                {
+                    "id": "caos_destruidor",
+                    "nome": "Destruidor Caótico",
+                    "largura": 140,
+                    "altura": 70,
+                    "vidaBase": 1000,
+                    "corFase1": "#ff0055",
+                    "corFase2": "#00f0ff"
+                }
+            ]
+        },
+        "ev_chuva_moedas_2026": {
+            "comuns": [
+                {
+                    "id": "inimigo_dourado",
+                    "nome": "Inimigo Dourado",
+                    "tamanho": 24,
+                    "velocidadeBase": 2.2,
+                    "vida": 1,
+                    "pontos": 100,
+                    "cor": "#ffd700"
+                }
+            ],
+            "bosses": [
+                {
+                    "id": "boss_moeda_dourada",
+                    "nome": "Guardião da Moeda Dourada",
+                    "largura": 140,
+                    "altura": 70,
+                    "vidaBase": 10,
+                    "corFase1": "#ffd700",
+                    "corFase2": "#fff2a6"
+                }
+            ]
+        }
+    }
+}

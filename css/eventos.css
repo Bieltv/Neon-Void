@@ -1,0 +1,404 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace, cursive;
+    user-select: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #08080c !important;
+    overflow: hidden;
+}
+
+body {
+    background-image: radial-gradient(circle at 50% 50%, #1a102f 0%, #050508 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    position: relative;
+    padding: 20px;
+}
+
+/* BOTÃO VOLTAR (Canto Superior Esquerdo) */
+.btn-voltar {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    padding: 12px 20px;
+    font-size: 0.75rem;
+    background-color: #0c0c14;
+    color: #00f0ff;
+    border: 2px solid #00f0ff;
+    cursor: pointer;
+    border-radius: 0px;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    z-index: 999;
+}
+
+.btn-voltar:hover {
+    background-color: rgba(0, 240, 255, 0.18);
+    box-shadow: 0 0 20px #00f0ff;
+    transform: scale(1.05);
+}
+
+.btn-voltar:active {
+    transform: scale(0.95);
+}
+
+/* LAYOUT PRINCIPAL (DUAS COLUNAS) */
+.eventos-container {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 1100px;
+    height: 80vh;
+    margin-top: 40px;
+}
+
+/* PAINÉIS LATERAIS (Estética Quadrada Retro) */
+.painel-evento {
+    flex: 1;
+    background-color: #0c0c14;
+    border: 2px solid #333344;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* PAINEL ESQUERDO: Borda Rosa/Magenta */
+.painel-progresso {
+    border-color: #ff00cc;
+    box-shadow: 0 0 15px rgba(255, 0, 204, 0.2);
+}
+
+/* PAINEL DIREITO: Borda Amarela/Neon */
+.painel-lista {
+    border-color: #ffdd00;
+    box-shadow: 0 0 15px rgba(255, 221, 0, 0.2);
+}
+
+/* TÍTULOS DOS PAINÉIS */
+.titulo-painel {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.painel-progresso .titulo-painel {
+    color: #ff00cc;
+    text-shadow: 0 0 8px rgba(255, 0, 204, 0.6);
+}
+
+.painel-lista .titulo-painel {
+    color: #ffdd00;
+    text-shadow: 0 0 8px rgba(255, 221, 0, 0.6);
+}
+
+/* MENSAGEM DE ESTADO VAZIO */
+.estado-vazio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    height: 100%;
+    color: #666677;
+    padding: 20px;
+}
+
+.icone-vazio {
+    font-size: 3rem;
+    opacity: 0.6;
+}
+
+.estado-vazio p {
+    font-size: 0.65rem;
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+/* ESTRUTURA DA ESCADINHA (DUOLINGO STYLE) */
+.trilha-fases {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Nó da Fase (Bolinha/Quadrado Neon) */
+.no-fase {
+    width: 60px;
+    height: 60px;
+    background-color: #11111a;
+    border: 3px solid #ff00cc;
+    color: #ff00cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 0, 204, 0.4);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.no-fase small {
+    color: #ffe600;
+    font-size: 0.38rem;
+}
+
+/* Posições da Escadinha (Zig-Zag) */
+.no-fase.esquerda {
+    transform: translateX(-40px);
+}
+
+.no-fase.centro {
+    transform: translateX(0px);
+}
+
+.no-fase.direita {
+    transform: translateX(40px);
+}
+
+.no-fase:hover {
+    box-shadow: 0 0 20px #ff00cc;
+    transform: scale(1.1) translateX(var(--offset-x, 0px));
+}
+
+.no-fase.concluida {
+    border-color: #00ff66;
+    color: #00ff66;
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+}
+
+.no-fase.bloqueada {
+    border-color: #444455;
+    color: #444455;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* CONTAINERS DA LISTA DE EVENTOS */
+.cards-lista {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+
+.card-evento {
+    background-color: #11111a;
+    border: 2px solid #333344;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-evento:hover,
+.card-evento.ativo {
+    border-color: #ffdd00;
+    box-shadow: 0 0 15px rgba(255, 221, 0, 0.4);
+    transform: scale(1.02);
+}
+
+.icone-evento {
+    font-size: 2rem;
+}
+
+.info-evento h3 {
+    font-size: 0.75rem;
+    color: #ffdd00;
+    margin-bottom: 6px;
+}
+
+.info-evento p {
+    font-size: 0.55rem;
+    color: #aaaabb;
+    line-height: 1.4;
+}
+
+/* Estado da bolinha da fase atual */
+.no-fase.atual {
+    border-color: #00f0ff;
+    color: #00f0ff;
+    box-shadow: 0 0 15px #00f0ff;
+    animation: pulsoNeon 1.5s infinite alternate;
+}
+
+@keyframes pulsoNeon {
+    from {
+        box-shadow: 0 0 8px #00f0ff;
+    }
+
+    to {
+        box-shadow: 0 0 20px #00f0ff, 0 0 30px #00f0ff;
+    }
+}
+
+.contador-evento {
+    display: block;
+    margin-top: 10px;
+    color: #00f0ff;
+    font-size: 0.55rem;
+}
+
+.resumo-recompensas {
+    display: block;
+    margin-top: 9px;
+    color: #00ff66;
+    font-size: 0.45rem;
+    line-height: 1.6;
+}
+
+.legenda-recompensas {
+    color: #8888a0;
+    font-size: 0.45rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.card-evento.em-breve {
+    border-color: #555566;
+    opacity: 0.78;
+}
+
+.card-evento.em-breve:hover {
+    border-color: #00f0ff;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+}
+
+.card-evento.pre-lancamento {
+    filter: grayscale(1);
+    opacity: 0.58;
+    border-color: #666666;
+    cursor: not-allowed;
+}
+
+.card-evento.pre-lancamento:hover {
+    transform: none;
+    border-color: #888888;
+    box-shadow: none;
+}
+
+.card-evento.pre-lancamento .info-evento h3,
+.card-evento.pre-lancamento .contador-evento,
+.card-evento.pre-lancamento .resumo-recompensas {
+    color: #999999;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        align-items: flex-start;
+        overflow: auto;
+    }
+
+    html,
+    body {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .btn-voltar {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin-bottom: 20px;
+        font-size: 0.65rem;
+        padding: 10px 16px;
+    }
+
+    .eventos-container {
+        flex-direction: column;
+        height: auto;
+        margin-top: 0;
+        gap: 20px;
+    }
+
+    .painel-evento {
+        padding: 20px;
+        min-height: 300px;
+    }
+
+    .titulo-painel {
+        font-size: 0.75rem;
+        margin-bottom: 20px;
+    }
+
+    .no-fase {
+        width: 50px;
+        height: 50px;
+        font-size: 0.7rem;
+    }
+
+    .no-fase small {
+        font-size: 0.35rem;
+    }
+
+    .no-fase.esquerda {
+        transform: translateX(-20px);
+    }
+
+    .no-fase.direita {
+        transform: translateX(20px);
+    }
+
+    .card-evento {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .icone-evento {
+        font-size: 1.5rem;
+    }
+
+    .info-evento h3 {
+        font-size: 0.65rem;
+    }
+
+    .info-evento p {
+        font-size: 0.5rem;
+    }
+
+    .contador-evento {
+        font-size: 0.5rem;
+    }
+
+    .resumo-recompensas {
+        font-size: 0.4rem;
+    }
+
+    .estado-vazio {
+        padding: 15px;
+    }
+
+    .icone-vazio {
+        font-size: 2rem;
+    }
+
+    .estado-vazio p {
+        font-size: 0.6rem;
+        max-width: 240px;
+    }
+}

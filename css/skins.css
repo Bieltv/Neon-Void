@@ -1,0 +1,753 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace, sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: #08080c;
+    background-image: radial-gradient(circle at 50% 50%, #15102a 0%, #050508 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.skins-container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header */
+.header-skins {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #ff00ff;
+    padding-bottom: 15px;
+}
+
+.titulo-garagem {
+    font-size: 1.5rem;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.btn-voltar {
+    font-size: 0.7rem;
+    padding: 10px 15px;
+    background-color: #111116;
+    color: #aaaaaa;
+    border: 3px solid #aaaaaa;
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.15s, color 0.15s;
+}
+
+.btn-voltar:hover {
+    transform: translateY(-3px);
+    background-color: #aaaaaa;
+    color: #000;
+    box-shadow: 0 0 10px #aaaaaa;
+}
+
+/* Layout Principal em 2 Colunas */
+.garagem-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Painel Esquerdo: Projeção Visual */
+.painel-visualizacao {
+    display: flex;
+    justify-content: center;
+}
+
+.card-projecao {
+    background-color: #0d0d14;
+    border: 3px solid #00f0ff;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.skin-id-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 0.7rem;
+    color: #00f0ff;
+}
+
+.skin-nome {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.canvas-wrapper {
+    margin: 15px 0 10px 0;
+    background-color: #050508;
+    border: 2px dashed #00f0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#canvas-preview {
+    background-color: transparent;
+}
+
+/* Botão Alternar RGB */
+.btn-toggle-rgb {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    font-size: 0.6rem;
+    background-color: #111;
+    color: #00ff66;
+    border: 2px solid #00ff66;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+    transition: all 0.2s ease;
+}
+
+.btn-toggle-rgb.desativado {
+    color: #888;
+    border-color: #555;
+    box-shadow: none;
+}
+
+.btn-toggle-rgb.escondido {
+    display: none;
+}
+
+/* Atributos */
+.painel-atributos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+    background-color: #12121c;
+    padding: 12px;
+    border: 2px solid #333344;
+}
+
+.atributo-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: #ccc;
+}
+
+.valor-attr {
+    color: #00ff66;
+    text-shadow: 0 0 5px #00ff66;
+}
+
+/* Botão Equipar e Estados */
+.btn-equipar {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.75rem;
+    border: 3px solid #00ff66;
+    background-color: #00ff66;
+    color: #000;
+    cursor: pointer;
+}
+
+.btn-equipar.equipado {
+    background-color: #222;
+    color: #666;
+    border-color: #444;
+    cursor: default;
+}
+
+.btn-equipar.bloqueado {
+    background-color: #221111;
+    color: #ff4444;
+    border-color: #ff4444;
+    cursor: not-allowed;
+}
+
+/* Painel Direito: Gaveta */
+.painel-selecao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.abas-categorias {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-aba {
+    flex: 1;
+    font-size: 0.65rem;
+    padding: 10px 5px;
+    background-color: #111116;
+    color: #888;
+    border: 2px solid #444;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-aba:hover {
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.btn-aba.ativa {
+    background-color: #ff00ff;
+    color: #000;
+    border-color: #ff00ff;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+/* Gaveta Vertical de Itens */
+.gaveta-skins {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 380px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.gaveta-skins::-webkit-scrollbar {
+    width: 6px;
+}
+
+.gaveta-skins::-webkit-scrollbar-thumb {
+    background: #ff00ff;
+}
+
+.painel-evolutivo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 460px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.card-skin-evolutiva {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 5px 12px;
+    align-items: center;
+    width: 100%;
+    min-height: 58px;
+    padding: 12px;
+    text-align: left;
+    color: #fff;
+    background: #111118;
+    border: 2px solid #333;
+    cursor: pointer;
+}
+
+.card-skin-evolutiva.ativo {
+    border-color: #ff00ff;
+    background: #20152a;
+    box-shadow: 0 0 12px rgba(255, 0, 255, 0.25);
+}
+
+.card-skin-evolutiva span,
+.card-skin-evolutiva small,
+.status-evolutiva {
+    font-size: 0.55rem;
+    color: #ff4444;
+}
+
+.card-skin-evolutiva small {
+    grid-column: 1 / -1;
+    color: #ffe600;
+}
+
+.status-evolutiva {
+    padding: 8px;
+    border: 1px solid #444;
+    color: #ffe600;
+    line-height: 1.5;
+}
+
+.btn-loja-evolutiva {
+    grid-column: 1 / -1;
+    padding: 7px;
+    color: #000;
+    background: #ffe600;
+    border: 0;
+    font: inherit;
+    font-size: 0.5rem;
+    cursor: pointer;
+}
+
+.niveis-evolutiva {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 4px;
+    border-top: 1px solid #333;
+}
+
+/* Estrutura Base dos Cards: Altura e Largura Rigidamente Travadas */
+.item-card-skin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 14px;
+    height: 64px;
+    min-height: 64px;
+    max-height: 64px;
+    background-color: #111118;
+    border: 2px solid #333;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+    box-shadow: inset 3px 0 #00f0ff;
+}
+
+.item-card-skin:hover {
+    transform: translateX(5px);
+    border-color: #00f0ff;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.item-card-skin.selecionado {
+    border-color: #00f0ff;
+    background-color: #171725;
+}
+
+/* Correção para o Card RGB: Usa Gradient Background para não quebrar a caixa da borda */
+.item-card-skin.card-rgb {
+    border: 2px solid transparent;
+    background-image: linear-gradient(#111118, #111118), linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.item-card-skin.card-rgb.selecionado {
+    background-image: linear-gradient(#171725, #171725), linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+}
+
+/* Informações do Item com limitação estrita de texto */
+.item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    overflow: hidden;
+    max-width: 65%;
+}
+
+.item-id {
+    font-size: 0.55rem;
+    color: #00f0ff;
+}
+
+.item-nome {
+    font-size: 0.6rem;
+    color: #fff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.item-status {
+    font-size: 0.6rem;
+    color: #00ff66;
+    white-space: nowrap;
+}
+
+.item-status.status-bloqueado {
+    color: #ff4444;
+}
+
+/* Paleta de Cores Preset */
+.painel-paleta {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.painel-paleta.escondido {
+    display: none;
+}
+
+.bolinha-cor {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.bolinha-cor:hover {
+    transform: scale(1.15);
+}
+
+.bolinha-cor.selecionada {
+    border-color: #ffffff;
+    box-shadow: 0 0 10px #ffffff;
+    transform: scale(1.15);
+}
+
+/* Animação do efeito Glitch */
+@keyframes efeitoGlitch {
+    0% {
+        transform: translate(0, 0);
+        filter: drop-shadow(2px 0 #ff0055) drop-shadow(-2px 0 #00f0ff);
+        background-color: #888888;
+    }
+
+    20% {
+        transform: translate(-3px, 2px);
+        filter: drop-shadow(-2px -2px #ff0055);
+        background-color: #666666;
+    }
+
+    40% {
+        transform: translate(3px, -1px);
+        filter: drop-shadow(2px 2px #00f0ff);
+        background-color: #aaaaaa;
+    }
+
+    60% {
+        transform: translate(-2px, -2px);
+        filter: drop-shadow(-2px 2px #ffffff);
+        background-color: #555555;
+    }
+
+    80% {
+        transform: translate(2px, 1px);
+        filter: drop-shadow(1px -2px #ff0055);
+        background-color: #777777;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        filter: drop-shadow(2px 0 #ff0055) drop-shadow(-2px 0 #00f0ff);
+        background-color: #888888;
+    }
+}
+
+.skin-glitch {
+    animation: efeitoGlitch 0.15s infinite alternate ease-in-out;
+}
+
+/* Correção Glitch: O tremor foi passado para a sombra/borda sem deslocar o layout */
+.item-card-skin.card-glitch {
+    border: 2px solid #ff0055;
+    animation: tremorGlowGlitch 0.18s infinite alternate ease-in-out;
+}
+
+.item-card-skin.card-glitch .item-id {
+    color: #ff0055;
+}
+
+@keyframes tremorGlowGlitch {
+    0% {
+        box-shadow: -2px 0 #00f0ff, 2px 0 #ff0055;
+    }
+
+    25% {
+        box-shadow: 2px -1px #ff0055, -2px 1px #00f0ff;
+    }
+
+    50% {
+        box-shadow: -1px 2px #00f0ff, 1px -2px #ffffff;
+    }
+
+    75% {
+        box-shadow: 2px 1px #ff0055, -1px -1px #00f0ff;
+    }
+
+    100% {
+        box-shadow: -2px 0 #00f0ff, 2px 0 #ff0055;
+    }
+}
+
+/* Card de Skin do Passe: Minimalista com borda fluida estilo Lava/Magma */
+.item-card-skin.card-passe {
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(#111118, #111118),
+        linear-gradient(135deg, #ff4500, #ffaa00, #ff1100, #ffaa00);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-size: 100% 100%, 300% 300%;
+    animation: bordaLavaPasse 5s ease infinite;
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.25);
+}
+
+.item-card-skin.card-passe .item-id {
+    color: #ffaa00;
+}
+
+.item-card-skin.card-passe.selecionado {
+    background-image:
+        linear-gradient(#171725, #171725),
+        linear-gradient(135deg, #ff4500, #ffaa00, #ff1100, #ffaa00);
+    box-shadow: 0 0 12px rgba(255, 170, 0, 0.5);
+}
+
+@keyframes bordaLavaPasse {
+    0% {
+        background-position: 0% 0%, 0% 50%;
+    }
+
+    50% {
+        background-position: 0% 0%, 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 0%, 0% 50%;
+    }
+}
+
+/* Garante que o efeito Glitch só fique no id #0003 ou flag explícita */
+.item-card-skin.card-glitch {
+    border: 2px solid #ff0055;
+    animation: tremorGlowGlitch 0.18s infinite alternate ease-in-out;
+}
+
+.item-card-skin.card-glitch .item-id {
+    color: #ff0055;
+}
+
+@keyframes tremorGlowGlitch {
+    0% {
+        box-shadow: -2px 0 #00f0ff, 2px 0 #ff0055;
+    }
+
+    50% {
+        box-shadow: -1px 2px #00f0ff, 1px -2px #ffffff;
+    }
+
+    100% {
+        box-shadow: -2px 0 #00f0ff, 2px 0 #ff0055;
+    }
+}
+
+/* Painel da Aba Evolutiva */
+.painel-evolutivo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 2px;
+    background: linear-gradient(180deg, rgba(255, 0, 255, 0.08), transparent);
+}
+
+.card-nivel-evo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background-color: #111118;
+    border: 2px solid #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 58px;
+}
+
+.card-skin-evolutiva strong {
+    color: #ffffff;
+    font-size: 0.65rem;
+}
+
+.card-skin-evolutiva.ativo strong {
+    color: #ffe600;
+}
+
+@media (max-width: 760px) {
+    body {
+        overflow: auto;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .skins-container {
+        margin-top: 20px;
+        max-width: 100%;
+    }
+
+    .garagem-main {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .header-skins {
+        gap: 12px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .titulo-garagem {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .btn-voltar {
+        align-self: flex-start;
+        font-size: 0.6rem;
+        padding: 8px 12px;
+    }
+
+    .card-projecao {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .skin-id-tag {
+        font-size: 0.6rem;
+    }
+
+    .skin-nome {
+        font-size: 0.9rem;
+    }
+
+    .canvas-wrapper {
+        padding: 8px;
+    }
+
+    .btn-toggle-rgb {
+        font-size: 0.55rem;
+        padding: 6px;
+    }
+
+    .painel-atributos {
+        padding: 10px;
+    }
+
+    .atributo-item {
+        font-size: 0.6rem;
+    }
+
+    .btn-equipar {
+        font-size: 0.65rem;
+        padding: 10px;
+    }
+
+    .abas-categorias {
+        flex-wrap: wrap;
+    }
+
+    .btn-aba {
+        font-size: 0.6rem;
+        padding: 8px 4px;
+    }
+
+    .gaveta-skins {
+        max-height: 300px;
+    }
+
+    .item-card-skin {
+        height: 56px;
+        min-height: 56px;
+        max-height: 56px;
+        padding: 0 10px;
+    }
+
+    .item-info {
+        max-width: 60%;
+    }
+
+    .item-id {
+        font-size: 0.5rem;
+    }
+
+    .item-nome {
+        font-size: 0.55rem;
+    }
+
+    .item-status {
+        font-size: 0.55rem;
+    }
+
+    .painel-paleta {
+        gap: 8px;
+    }
+
+    .bolinha-cor {
+        width: 22px;
+        height: 22px;
+    }
+
+    .card-skin-evolutiva {
+        min-height: 52px;
+        padding: 10px;
+    }
+
+    .card-nivel-evo {
+        padding: 8px 10px;
+        min-height: 52px;
+    }
+
+    .info-nivel {
+        gap: 3px;
+    }
+
+    .num-nivel {
+        font-size: 0.55rem;
+    }
+
+    .nome-nivel {
+        font-size: 0.6rem;
+    }
+
+    .tag-nivel-status {
+        font-size: 0.5rem;
+    }
+}
+
+.card-nivel-evo:hover {
+    border-color: #00f0ff;
+}
+
+.card-nivel-evo.ativo {
+    border-color: #ffaa00;
+    background-color: #1a1508;
+    box-shadow: 0 0 10px rgba(255, 170, 0, 0.4);
+}
+
+.info-nivel {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.num-nivel {
+    font-size: 0.6rem;
+    color: #ffaa00;
+}
+
+.nome-nivel {
+    font-size: 0.65rem;
+    color: #ffffff;
+}
+
+.tag-nivel-status {
+    font-size: 0.55rem;
+    color: #00ff66;
+}

@@ -1,0 +1,26 @@
+{
+    "versaoAtual": "1.0.0",
+    "versaoMinima": "1.0.0",
+    "atualizar": false,
+    "atualizacaoAgendada": {
+        "ativa": false,
+        "inicio": "2026-08-23T23:00:00-03:00",
+        "duracaoMinutos": 30,
+        "mensagem": "O Neon Void está recebendo uma atualização programada. Aguarde a liberação automática."
+    },
+    "mesBase": "Setembro_2026",
+    "regras": {
+        "Setembro_2026": "1.0.0",
+        "Outubro_2026": "1.1.0"
+    },
+    "arquivos": {
+        "eventos.json": "1.0.0",
+        "inimigosEV.json": "1.0.0",
+        "nave.json": "1.0.0",
+        "escudo.json": "1.0.0",
+        "tiro.json": "1.0.0",
+        "cards.json": "1.0.0",
+        "loja.json": "1.0.0",
+        "passe.json": "1.0.0"
+    }
+}

@@ -1,0 +1,166 @@
+[
+    {
+        "id": "ev_modo_caos_2026",
+        "versao": "1.0.0",
+        "titulo": "MODO CAOS",
+        "descricao": "Enfrente modificadores cumulativos, um perseguidor explosivo e 45 fases de caos.",
+        "dataInicio": "2026-09-01",
+        "dataFim": "2026-09-30",
+        "icone": "🔥",
+        "fasesTotais": 45,
+        "recompensasFases": [
+            {
+                "fase": 5,
+                "diamantes": 20,
+                "moedas": 500
+            },
+            {
+                "fase": 10,
+                "diamantes": 20,
+                "moedas": 500
+            },
+            {
+                "fase": 20,
+                "diamantes": 20,
+                "moedas": 1000
+            },
+            {
+                "fase": 30,
+                "diamantes": 20,
+                "moedas": 1500
+            },
+            {
+                "fase": 40,
+                "diamantes": 20,
+                "moedas": 1500
+            }
+        ],
+        "recompensaConclusao": {
+            "tipo": "skin",
+            "categoria": "nave",
+            "skinId": "#N003"
+        }
+    },
+    {
+        "id": "ev_chuva_moedas_2026",
+        "versao": "1.0.0",
+        "titulo": "CHUVA DE MOEDAS",
+        "descricao": "Derrote inimigos dourados em 30 fases e acumule uma fortuna.",
+        "dataInicio": "2026-09-15",
+        "dataFim": "2026-10-14",
+        "icone": "🪙",
+        "fasesTotais": 30,
+        "usaModificadores": false,
+        "escalaBossPorOnda": false,
+        "recompensasFases": [
+            {
+                "fase": 1,
+                "moedas": 10000
+            },
+            {
+                "fase": 5,
+                "moedas": 10000
+            },
+            {
+                "fase": 7,
+                "moedas": 10000
+            },
+            {
+                "fase": 8,
+                "moedas": 10000
+            },
+            {
+                "fase": 9,
+                "moedas": 10000
+            },
+            {
+                "fase": 10,
+                "moedas": 10000
+            },
+            {
+                "fase": 11,
+                "moedas": 10000
+            },
+            {
+                "fase": 12,
+                "moedas": 10000
+            },
+            {
+                "fase": 13,
+                "moedas": 10000
+            },
+            {
+                "fase": 14,
+                "moedas": 10000
+            },
+            {
+                "fase": 15,
+                "moedas": 10000
+            },
+            {
+                "fase": 16,
+                "moedas": 10000
+            },
+            {
+                "fase": 17,
+                "moedas": 10000
+            },
+            {
+                "fase": 18,
+                "moedas": 10000
+            },
+            {
+                "fase": 19,
+                "moedas": 10000
+            },
+            {
+                "fase": 20,
+                "moedas": 10000
+            },
+            {
+                "fase": 21,
+                "moedas": 10000
+            },
+            {
+                "fase": 22,
+                "moedas": 10000
+            },
+            {
+                "fase": 23,
+                "moedas": 10000
+            },
+            {
+                "fase": 24,
+                "moedas": 10000
+            },
+            {
+                "fase": 25,
+                "moedas": 10000
+            },
+            {
+                "fase": 26,
+                "moedas": 10000
+            },
+            {
+                "fase": 27,
+                "moedas": 10000
+            },
+            {
+                "fase": 28,
+                "moedas": 10000
+            },
+            {
+                "fase": 29,
+                "moedas": 10000
+            },
+            {
+                "fase": 30,
+                "moedas": 41000
+            }
+        ],
+        "recompensaConclusao": {
+            "tipo": "moedas",
+            "quantidade": 0
+        }
+    }
+]

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Void - Configurações</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/configuracoes.css">
+</head>
+
+<body>
+
+    <div class="config-container">
+
+        <!-- CABEÇALHO -->
+        <header class="header-config">
+            <button id="btn-voltar" class="btn-voltar">◀ VOLTAR</button>
+            <h1 class="titulo-config">CONFIGURAÇÕES</h1>
+            <div style="width: 80px;"></div> <!-- Espaçador para centralizar o título -->
+        </header>
+
+        <!-- PAINEL PRINCIPAL -->
+        <main class="painel-config">
+
+            <!-- SEÇÃO: CÓDIGOS SECRETOS -->
+            <section class="card-config">
+                <h2>CÓDIGOS SECRETOS</h2>
+                <p class="desc-card">Insira um código promocional ou de desenvolvedor:</p>
+                <div class="grupo-input">
+                    <input type="text" id="input-codigo" placeholder="DIGITE O CÓDIGO..." maxlength="10">
+                    <button id="btn-resgatar-codigo" class="btn-acao btn-neon">RESGATAR</button>
+                </div>
+            </section>
+
+            <!-- SEÇÃO: DADOS DA CONTA -->
+            <section class="card-config perigo">
+                <h2>DADOS DO JOGO</h2>
+                <p class="desc-card">Apaga todo o progresso, moedas, diamantes e skins salvas.</p>
+                <button id="btn-resetar-dados" class="btn-acao btn-perigo">EXCLUIR DADOS DA CONTA</button>
+            </section>
+
+            <!-- PAINEL ADM (ESCONDIDO POR PADRÃO) -->
+            <section id="painel-adm" class="card-config adm escondido">
+                <h2 class="titulo-adm">⚡ MODO ADM ATIVADO ⚡</h2>
+                <p class="desc-card">Edição direta do Banco Central do jogo:</p>
+
+                <div class="grid-adm">
+                    <div class="item-adm">
+                        <label>Moedas:</label>
+                        <input type="number" id="adm-moedas">
+                    </div>
+                    <div class="item-adm">
+                        <label>Diamantes:</label>
+                        <input type="number" id="adm-diamantes">
+                    </div>
+                    <div class="item-adm checkbox-item">
+                        <label for="adm-passe">Passe Premium Liberado:</label>
+                        <input type="checkbox" id="adm-passe">
+                    </div>
+                    <div class="item-adm checkbox-item">
+                        <label for="adm-rgb">Pacote RGB Liberado:</label>
+                        <input type="checkbox" id="adm-rgb">
+                    </div>
+                    <!-- NOVA OPÇÃO DE ADM -->
+                    <div class="item-adm checkbox-item" style="grid-column: span 2;">
+                        <label for="adm-desbloquear-niveis-passe">Desbloquear Todos Níveis do Passe (15/15):</label>
+                        <input type="checkbox" id="adm-desbloquear-niveis-passe">
+                    </div>
+                </div>
+
+                <button id="btn-salvar-adm" class="btn-acao btn-adm">SALVAR ALTERAÇÕES</button>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="../js/conta.js"></script>
+    <script src="../js/economia.js"></script>
+    <script src="../js/configuracoes.js"></script>
+    <script src="../js/controle-versao.js"></script>
+</body>
+
+</html>

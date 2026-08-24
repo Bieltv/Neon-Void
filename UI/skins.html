@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Void - Garagem de Skins</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/skins.css">
+</head>
+
+<body>
+
+    <div class="skins-container">
+        <header class="header-skins">
+            <button id="btn-voltar" class="btn-voltar">⬅ VOLTAR</button>
+            <h1 class="titulo-garagem">GARAGEM DE SKINS</h1>
+        </header>
+
+        <main class="garagem-main">
+
+            <!-- LADO ESQUERDO: Projeção Visual + Atributos Específicos -->
+            <section class="painel-visualizacao">
+                <div class="card-projecao">
+                    <span id="skin-id" class="skin-id-tag">#N001</span>
+                    <h2 id="skin-nome" class="skin-nome">NAVE PADRÃO</h2>
+
+                    <div class="canvas-wrapper">
+                        <canvas id="canvas-preview" width="220" height="220"></canvas>
+                    </div>
+
+                    <!-- Botão para Ativar/Desativar modo RGB -->
+                    <button id="btn-toggle-rgb" class="btn-toggle-rgb escondido">MODO RGB: LIGADO</button>
+
+                    <!-- Paleta de Cores Predefinida para quando o RGB for desligado -->
+                    <div id="painel-paleta-cores" class="painel-paleta escondido"></div>
+
+                    <!-- Conteúdo Dinâmico de Atributos via JS -->
+                    <div id="painel-atributos" class="painel-atributos">
+                        <!-- Gerado automaticamente pelo JS de acordo com a aba -->
+                    </div>
+
+                    <button id="btn-equipar" class="btn-equipar equipado" disabled>EQUIPADO</button>
+                </div>
+            </section>
+
+            <!-- LADO DIREITO: Categoria e Lista -->
+            <section class="painel-selecao">
+                <nav class="abas-categorias">
+                    <button class="btn-aba ativa" data-cat="nave">NAVES</button>
+                    <button class="btn-aba" data-cat="escudo">ESCUDOS</button>
+                    <button class="btn-aba" data-cat="tiro">TIROS</button>
+                    <button class="btn-aba" data-cat="evolutiva">EVOLUTIVAS</button>
+                </nav>
+
+                <div id="gaveta-skins" class="gaveta-skins">
+                    <!-- Cards inseridos dinamicamente -->
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="../programa/renderizador.js"></script>
+    <script src="../js/conta.js"></script>
+    <script src="../js/economia.js"></script>
+    <script src="../js/skins.js"></script>
+    <script src="../js/controle-versao.js"></script>
+</body>
+
+</html>

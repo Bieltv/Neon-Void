@@ -1,0 +1,35 @@
+{
+    "pacotesDiamantes": [
+        {
+            "diamantes": 140,
+            "tickets": 15
+        },
+        {
+            "diamantes": 340,
+            "tickets": 30
+        },
+        {
+            "diamantes": 680,
+            "tickets": 50
+        },
+        {
+            "diamantes": 1800,
+            "tickets": 75
+        },
+        {
+            "diamantes": 2780,
+            "tickets": 120
+        },
+        {
+            "diamantes": 3890,
+            "tickets": 190
+        },
+        {
+            "diamantes": 6100,
+            "tickets": 300
+        }
+    ],
+    "passeBatalha": {
+        "tickets": 250
+    }
+}

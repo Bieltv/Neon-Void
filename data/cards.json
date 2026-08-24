@@ -1,0 +1,107 @@
+{
+    "nave": [
+        {
+            "id": "CARD-N001",
+            "versao": "1.0.0",
+            "skinId": "#N001",
+            "categoria": "nave",
+            "nome": "NAVE CIANO"
+        },
+        {
+            "id": "CARD-N002",
+            "versao": "1.0.0",
+            "skinId": "#N002",
+            "categoria": "nave",
+            "nome": "NAVE CHROMATIC RGB"
+        },
+        {
+            "id": "CARD-N003",
+            "versao": "1.0.0",
+            "skinId": "#N003",
+            "categoria": "nave",
+            "nome": "NAVE GLITCH VOID"
+        },
+        {
+            "id": "CARD-N004",
+            "versao": "1.1.0",
+            "skinId": "#N004",
+            "categoria": "nave",
+            "nome": "Nave Incandescente"
+        },
+        {
+            "id": "CARD-N005",
+            "versao": "1.0.0",
+            "skinId": "#N005",
+            "categoria": "nave",
+            "nome": "NAVE FÊNIX"
+        },
+        {
+            "id": "CARD-N006",
+            "versao": "1.0.0",
+            "skinId": "#N006",
+            "categoria": "nave",
+            "nome": "SINGULARIDADE",
+            "tipo": "evolutiva"
+        }
+    ],
+    "escudo": [
+        {
+            "id": "CARD-E001",
+            "versao": "1.0.0",
+            "skinId": "#E001",
+            "categoria": "escudo",
+            "nome": "ESCUDO CIANO"
+        },
+        {
+            "id": "CARD-E002",
+            "versao": "1.0.0",
+            "skinId": "#E002",
+            "categoria": "escudo",
+            "nome": "ESCUDO PRISM RGB"
+        },
+        {
+            "id": "CARD-E003",
+            "versao": "1.1.0",
+            "skinId": "#E003",
+            "categoria": "escudo",
+            "nome": "Tríade Solar"
+        },
+        {
+            "id": "CARD-E004",
+            "versao": "1.0.0",
+            "skinId": "#E004",
+            "categoria": "escudo",
+            "nome": "Disco Quasar"
+        }
+    ],
+    "tiro": [
+        {
+            "id": "CARD-T001",
+            "versao": "1.0.0",
+            "skinId": "#T001",
+            "categoria": "tiro",
+            "nome": "LASER CIANO"
+        },
+        {
+            "id": "CARD-T002",
+            "versao": "1.0.0",
+            "skinId": "#T002",
+            "categoria": "tiro",
+            "nome": "LASER SPECTRUM RGB"
+        },
+        {
+            "id": "CARD-T003",
+            "versao": "1.1.0",
+            "skinId": "#T003",
+            "categoria": "tiro",
+            "nome": "Chama Solar"
+        },
+        {
+            "id": "CARD-T004",
+            "versao": "1.0.0",
+            "skinId": "#T004",
+            "categoria": "tiro",
+            "nome": "Jato Relativístico"
+        }
+    ]
+}

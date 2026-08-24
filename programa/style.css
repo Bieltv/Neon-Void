@@ -1,0 +1,183 @@
+/* === RESET E ESTILO GERAL === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #080810;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.painel-json,
+.painel-preview {
+    background: #11111a;
+    border: 1px solid #00f0ff;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 1.2rem;
+    color: #00f0ff;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+textarea {
+    width: 100%;
+    height: 380px;
+    background: #050508;
+    color: #00ff66;
+    border: 1px solid #222233;
+    border-radius: 6px;
+    padding: 12px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.9rem;
+    resize: vertical;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #00f0ff;
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+button {
+    background: #00f0ff;
+    color: #000000;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+    min-height: 46px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+
+button:hover,
+button:active {
+    background: #55f5ff;
+    box-shadow: 0 0 15px #00f0ff;
+    transform: scale(1.01);
+}
+
+.abas-navegacao {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-aba {
+    flex: 1;
+    background: #1a1a2e;
+    color: #ffffff;
+    border: 1px solid #33334d;
+    margin-top: 0;
+}
+
+.btn-aba.ativa {
+    background: #00f0ff;
+    color: #000000;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.grid-skins {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 15px;
+    overflow-y: auto;
+    max-height: 420px;
+    padding-right: 5px;
+}
+
+.card-skin {
+    background: #080810;
+    border: 1px solid #222233;
+    border-radius: 8px;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: border 0.2s ease;
+}
+
+.card-skin:hover {
+    border-color: #00f0ff;
+}
+
+/* === RESPONSIVIDADE MOBILE === */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .editor-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .painel-json,
+    .painel-preview {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    textarea {
+        height: 250px;
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 0.85rem;
+        min-height: 42px;
+    }
+
+    .abas-navegacao {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-aba {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+
+    .grid-skins {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+        max-height: 350px;
+    }
+
+    .card-skin {
+        padding: 12px 8px;
+        gap: 8px;
+    }
+}

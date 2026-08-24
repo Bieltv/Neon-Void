@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Neon Void - Arena de Combate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/jogo.css">
+</head>
+
+<body>
+
+    <div id="game-container">
+        <!-- Canvas do Jogo -->
+        <canvas id="canvasJogo"></canvas>
+
+        <!-- MODAL DE ESCOLHA INICIAL (MODO CAOS) -->
+        <div id="modal-escolha-inicial" class="modal-overlay" style="display: none;">
+            <div class="modal-card">
+                <h2>ESCOLHA SUA HABILIDADE</h2>
+                <div class="opcoes-container" id="container-opcoes">
+                    <!-- Os botões de escolha serão injetados dinamicamente via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- HUD (Interface) -->
+        <div id="hud">
+            <div class="hud-row">
+                <div class="barra-vida-container">
+                    <div id="barra-vida-fill"></div>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <div class="tempo-txt" id="hud-tempo">60s</div>
+                    <button id="btn-pause" class="btn-hud-pause">⏸️</button>
+                </div>
+            </div>
+            <div class="hud-row">
+                <div class="pontos-txt" id="hud-pontos">PONTOS: 0</div>
+                <div class="fase-txt" id="hud-fase">ONDA: 1</div>
+            </div>
+        </div>
+
+        <!-- Alerta Nave Mãe -->
+        <div id="alerta-boss">
+            ⚠️ ALERTA DE AMEAÇA ⚠️<br><br>NAVE-MÃE DETECTADA!
+        </div>
+
+        <!-- Tela de Pause -->
+        <div id="pause-screen" class="overlay-tela">
+            <h1 class="titulo-go" style="color: #00f0ff;">JOGO PAUSADO</h1>
+            <button class="btn-go" id="btn-retomar">CONTINUAR</button>
+            <button class="btn-menu-go" id="btn-pause-menu">MENU PRINCIPAL</button>
+        </div>
+
+        <!-- Tela de Game Over -->
+        <div id="game-over-screen" class="overlay-tela">
+            <h1 class="titulo-go" id="go-titulo">FIM DE JOGO</h1>
+
+            <div class="caixa-resumo">
+                <div class="resumo-linha">
+                    <span>PONTUAÇÃO:</span>
+                    <span id="go-pontos">0</span>
+                </div>
+                <div class="resumo-linha">
+                    <span>INIMIGOS:</span>
+                    <span id="go-inimigos">0</span>
+                </div>
+                <div class="resumo-linha">
+                    <span>ONDAS SOBREVIVIDAS:</span>
+                    <span id="go-ondas" style="color: #ffe600;">1</span>
+                </div>
+                <hr style="border-color: #1a1a2e; margin: 4px 0;">
+                <div class="resumo-linha">
+                    <span>MOEDAS (+10p):</span>
+                    <span class="resumo-destaque" id="go-moedas">+0 🪙</span>
+                </div>
+                <div class="resumo-linha">
+                    <span>XP DO PASSE:</span>
+                    <span class="resumo-destaque" id="go-xp">+0 XP</span>
+                </div>
+            </div>
+
+            <button class="btn-go" id="btn-jogar-novamente">JOGAR NOVAMENTE</button>
+            <button class="btn-menu-go" id="btn-voltar-menu">MENU PRINCIPAL</button>
+        </div>
+    </div>
+
+    <!-- Import do Banco de Skins e Lógica do Jogo -->
+    <script src="../js/renderizador.js"></script>
+    <script src="../js/skins.js"></script>
+    <script src="../js/conta.js"></script>
+    <script src="../js/economia.js"></script>
+    <script src="../js/jogo.js"></script>
+    <script src="../js/controle-versao.js"></script>
+</body>
+
+</html>

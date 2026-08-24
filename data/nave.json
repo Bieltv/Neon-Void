@@ -1,0 +1,204 @@
+[
+    {
+        "id": "#N001",
+        "versao": "1.0.0",
+        "nome": "NAVE CIANO",
+        "cor": "#00f0ff",
+        "desbloqueadaPadrao": true,
+        "isRgb": false,
+        "atributos": {
+            "VIDA": "3",
+            "DANO": "1"
+        }
+    },
+    {
+        "id": "#N002",
+        "versao": "1.0.0",
+        "nome": "NAVE CHROMATIC RGB",
+        "cor": "rgb",
+        "requerPasse": true,
+        "mesPasse": "Setembro_2026",
+        "isRgb": true,
+        "atributos": {
+            "VIDA": "4",
+            "EFEITO": "Evolutivo RGB"
+        },
+        "paletaCores": [
+            "#ff0055",
+            "#00ff66",
+            "#ffe600",
+            "#ff00ff",
+            "#ffffff",
+            "#00f0ff"
+        ]
+    },
+    {
+        "id": "#N003",
+        "versao": "1.0.0",
+        "nome": "NAVE GLITCH VOID",
+        "cor": "glitch",
+        "isGlitch": true,
+        "requerEvento": "ev_modo_caos_2026",
+        "dataInicio": "2026-09-01",
+        "dataFim": "2026-09-30",
+        "atributos": {
+            "VIDA": "5",
+            "EFEITO": "Distorção Temporal"
+        },
+        "corBase": "#7f8c8d",
+        "paletaGlitch": [
+            "#a6a6a6",
+            "#00f0ff",
+            "#ff0055",
+            "#333333"
+        ]
+    },
+    {
+        "id": "#N004",
+        "versao": "1.1.0",
+        "nome": "Nave Incandescente",
+        "tipo": "passe",
+        "requerPasse": true,
+        "mesPasse": "Outubro_2026",
+        "cor": "#ff0000",
+        "animacao": {
+            "tipo": "evolutivo_progresso",
+            "corInicial": "#ff0000",
+            "corIntermediaria": "#ff6600",
+            "corFinal": "#ffffff",
+            "maxPontos": 18000
+        },
+        "atributos": {
+            "VIDA": "4",
+            "EFEITO": "Degradê Evolutivo (0-600)"
+        }
+    },
+    {
+        "id": "#N005",
+        "versao": "1.0.0",
+        "nome": "NAVE FÊNIX",
+        "categoria": "nave",
+        "tipo": "evento",
+        "requerEvento": "evento_fenix_2026",
+        "desbloqueadaPadrao": false,
+        "cor": "#ff3333",
+        "forma": "losango",
+        "geometria": {
+            "altura": 40,
+            "largura": 35
+        },
+        "atributos": {
+            "VIDA": 4,
+            "DANO": 2,
+            "EFEITO": "Recompensa do Evento Fênix"
+        },
+        "niveis": [
+            {
+                "nivel": 1,
+                "nomeEstagio": "Fênix Incandescente",
+                "cor": "#ff3333",
+                "sombraCor": "#aa0000",
+                "shadowBlur": 18,
+                "custoDiamantes": 0,
+                "efeitos": {
+                    "faiscas": true,
+                    "faiscasCor": "#ffd700",
+                    "taxaFaiscas": 0.16
+                }
+            },
+            {
+                "nivel": 2,
+                "nomeEstagio": "Fênix Solar",
+                "cor": "#ffd700",
+                "sombraCor": "#ff7a00",
+                "shadowBlur": 24,
+                "custoDiamantes": 750,
+                "desbloqueadoPadrao": false,
+                "efeitos": {
+                    "faiscas": true,
+                    "faiscasCor": "#fff099",
+                    "taxaFaiscas": 0.2
+                }
+            },
+            {
+                "nivel": 3,
+                "nomeEstagio": "Fênix Supernova",
+                "cor": "#00f0ff",
+                "sombraCor": "#0066ff",
+                "shadowBlur": 32,
+                "custoDiamantes": 1200,
+                "desbloqueadoPadrao": false,
+                "efeitos": {
+                    "brilhoEstelar": true,
+                    "pulsoRitmico": true,
+                    "faiscas": true,
+                    "faiscasCor": "#ffffff",
+                    "taxaFaiscas": 0.24
+                }
+            }
+        ]
+    },
+    {
+        "id": "#N006",
+        "versao": "1.0.0",
+        "nome": "SINGULARIDADE",
+        "categoria": "nave",
+        "raridade": "mítica",
+        "tipo": "evolutiva",
+        "desbloqueadaPadrao": false,
+        "forma": "circulo",
+        "atributos": {
+            "VIDA": 5,
+            "DANO": 3
+        },
+        "geometria": {
+            "raio": 16,
+            "altura": 32,
+            "largura": 32
+        },
+        "niveis": [
+            {
+                "nivel": 1,
+                "nomeEstagio": "Singularidade Void",
+                "cor": "#05000a",
+                "corBorda": "#9900ff",
+                "larguraBorda": 1.5,
+                "sombraCor": "#9900ff",
+                "shadowBlur": 15,
+                "geometria": {
+                    "raio": 16,
+                    "altura": 32,
+                    "largura": 32
+                }
+            },
+            {
+                "nivel": 2,
+                "nomeEstagio": "Singularidade Alva",
+                "cor": "#ffffff",
+                "corBorda": "#000000",
+                "larguraBorda": 2,
+                "sombraCor": "#ffffff",
+                "shadowBlur": 18,
+                "geometria": {
+                    "raio": 16,
+                    "altura": 32,
+                    "largura": 32
+                }
+            },
+            {
+                "nivel": 3,
+                "nomeEstagio": "Singularidade Absoluta",
+                "cor": "#000000",
+                "corBorda": "#9900ff",
+                "larguraBorda": 1,
+                "sombraCor": "#9900ff",
+                "shadowBlur": 22,
+                "geometria": {
+                    "raio": 16,
+                    "altura": 32,
+                    "largura": 32
+                }
+            }
+        ]
+    }
+]

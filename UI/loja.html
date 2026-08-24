@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Void - Loja</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/loja.css">
+</head>
+
+<body>
+
+    <!-- PAINEL CENTRAL DE ECONOMIA -->
+    <div class="central-economia">
+        <div class="card-moeda ouro">
+            <span class="icone-moeda">🪙</span>
+            <span id="saldo-moedas">0</span>
+        </div>
+        <div class="card-moeda diamante">
+            <span class="icone-moeda">💎</span>
+            <span id="saldo-diamantes">0</span>
+        </div>
+    </div>
+
+    <!-- BOTÃO VOLTAR -->
+    <button id="btn-voltar" class="btn-voltar">⬅ VOLTAR</button>
+
+    <main class="loja-wrapper">
+        <h1 class="titulo-loja">LOJA CYBERPUNK</h1>
+
+        <!-- ABAS DA LOJA -->
+        <div class="navegacao-abas">
+            <button class="btn-aba ativa" data-aba="normais">SKINS NORMAIS</button>
+            <button class="btn-aba" data-aba="eventos">SKINS DE EVENTOS</button>
+        </div>
+
+        <!-- CONTEÚDO DAS ABAS -->
+        <div class="conteudo-loja">
+            <section id="aba-normais" class="secao-aba ativa">
+                <div id="container-destaques" class="grid-cards"></div>
+            </section>
+
+            <section id="aba-eventos" class="secao-aba">
+                <div id="container-eventos" class="grid-cards"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- MODAL DA ROLETA DE EVENTOS (Baseado no esboço) -->
+    <div id="modal-roleta" class="modal-overlay oculto">
+        <div class="modal-roleta-conteudo">
+            <button id="btn-fechar-roleta" class="btn-fechar-x">✕</button>
+
+            <div class="roleta-layout">
+                <!-- Esquerda: Botão de Giro e Custo -->
+                <div class="roleta-coluna-esquerda">
+                    <div class="saldo-roleta">DIAMANTES <strong id="saldo-roleta">0</strong></div>
+                    <div class="acoes-roleta">
+                        <button id="btn-girar-roleta" class="btn-girar">GIRO 1X<br><span id="custo-roleta-texto">💎
+                                15</span></button>
+                        <button id="btn-girar-5x" class="btn-girar btn-girar-5x">GIRO 5X<br><span>💎 75</span></button>
+                    </div>
+                </div>
+
+                <!-- Centro: A Roleta Giratória em Canvas -->
+                <div class="roleta-coluna-centro">
+                    <div class="ponteiro-roleta">▲</div>
+                    <canvas id="canvas-roleta" width="220" height="220"></canvas>
+                </div>
+
+                <!-- Direita: Skin Principal e Porcentagem -->
+                <div class="roleta-coluna-direita">
+                    <div class="card-skin-destaque-roleta">
+                        <span class="label-skin">SKIN</span>
+                        <div id="preview-skin-roleta" class="preview-box"></div>
+                        <span id="porcentagem-skin-roleta" class="tag-porcentagem">5%</span>
+                    </div>
+                    <div id="lista-recompensas-roleta" class="lista-recompensas-roleta"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO DE COMPRA/PREMIO -->
+    <div id="modal-sucesso" class="modal-overlay oculto">
+        <div class="modal-conteudo">
+            <h3 id="modal-titulo">ITEM ADQUIRIDO!</h3>
+            <div id="modal-preview" class="modal-preview"></div>
+            <p id="modal-mensagem">Você obteve uma nova skin!</p>
+            <button id="btn-fechar-modal" class="btn-modal">INCRÍVEL!</button>
+        </div>
+    </div>
+
+    <script src="../js/conta.js"></script>
+    <script src="../js/economia.js"></script>
+    <script src="../js/loja.js"></script>
+    <script src="../js/controle-versao.js"></script>
+</body>
+
+</html>

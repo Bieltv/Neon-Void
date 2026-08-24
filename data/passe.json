@@ -1,0 +1,210 @@
+{
+    "versao": "1.0.0",
+    "XP_POR_NIVEL": 200,
+    "PRECO_PASSE_DIAMANTES": 420,
+    "temporadas": {
+        "Setembro_2026": {
+            "passeGratis": [
+                {
+                    "nivel": 1,
+                    "nome": "50 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 50
+                },
+                {
+                    "nivel": 2,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                },
+                {
+                    "nivel": 3,
+                    "nome": "20 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 20
+                },
+                {
+                    "nivel": 4,
+                    "nome": "100 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 100
+                },
+                {
+                    "nivel": 5,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                },
+                {
+                    "nivel": 6,
+                    "nome": "50 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 50
+                },
+                {
+                    "nivel": 7,
+                    "nome": "20 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 20
+                },
+                {
+                    "nivel": 8,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                },
+                {
+                    "nivel": 9,
+                    "nome": "100 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 100
+                },
+                {
+                    "nivel": 10,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                },
+                {
+                    "nivel": 11,
+                    "nome": "50 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 50
+                },
+                {
+                    "nivel": 12,
+                    "nome": "20 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 20
+                },
+                {
+                    "nivel": 13,
+                    "nome": "100 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 100
+                },
+                {
+                    "nivel": 14,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                },
+                {
+                    "nivel": 15,
+                    "nome": "50 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 50
+                }
+            ],
+            "passePremium": [
+                {
+                    "nivel": 1,
+                    "nome": "100 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 100
+                },
+                {
+                    "nivel": 2,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                },
+                {
+                    "nivel": 3,
+                    "nome": "50 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 50
+                },
+                {
+                    "nivel": 4,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                },
+                {
+                    "nivel": 5,
+                    "nome": "100 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 100
+                },
+                {
+                    "nivel": 6,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                },
+                {
+                    "nivel": 7,
+                    "nome": "50 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 50
+                },
+                {
+                    "nivel": 8,
+                    "nome": "100 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 100
+                },
+                {
+                    "nivel": 9,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                },
+                {
+                    "nivel": 10,
+                    "nome": "50 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 50
+                },
+                {
+                    "nivel": 11,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                },
+                {
+                    "nivel": 12,
+                    "nome": "100 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 100
+                },
+                {
+                    "nivel": 13,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                },
+                {
+                    "nivel": 14,
+                    "nome": "50 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 50
+                },
+                {
+                    "nivel": 15,
+                    "nome": "PACOTE RGB (3 SKINS)",
+                    "tipo": "pacote_rgb",
+                    "especial": true
+                }
+            ]
+        },
+        "Outubro_2026": {
+            "passeGratis": [
+                {
+                    "nivel": 1,
+                    "nome": "50 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 50
+                },
+                {
+                    "nivel": 2,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                }
+            ],
+            "passePremium": [
+                {
+                    "nivel": 1,
+                    "nome": "100 Moedas",
+                    "tipo": "moeda",
+                    "qtd": 100
+                },
+                {
+                    "nivel": 2,
+                    "nome": "Caixa da Sorte",
+                    "tipo": "caixa"
+                }
+            ]
+        }
+    }
+}

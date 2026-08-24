@@ -1,0 +1,86 @@
+[
+    {
+        "id": "#E001",
+        "versao": "1.0.0",
+        "nome": "ESCUDO CIANO",
+        "cor": "#00f0ff",
+        "desbloqueadaPadrao": true,
+        "isRgb": false,
+        "atributos": {
+            "PROTEÇÃO": "5",
+            "DURAÇÃO": "10"
+        }
+    },
+    {
+        "id": "#E002",
+        "versao": "1.0.0",
+        "nome": "ESCUDO PRISM RGB",
+        "cor": "rgb",
+        "requerPasse": true,
+        "mesPasse": "Setembro_2026",
+        "isRgb": true,
+        "atributos": {
+            "PROTEÇÃO": "8",
+            "DURAÇÃO": "12",
+            "EFEITO": "Aura Prismática"
+        },
+        "paletaCores": [
+            "#00ff66",
+            "#00f0ff",
+            "#ff00ff",
+            "#ffaa00",
+            "#ffffff",
+            "#ff0055"
+        ]
+    },
+    {
+        "id": "#E003",
+        "versao": "1.1.0",
+        "nome": "Tríade Solar",
+        "tipo": "passe",
+        "requerPasse": true,
+        "mesPasse": "Outubro_2026",
+        "cor": "#ff0000",
+        "animacao": {
+            "tipo": "orbes_giratorios",
+            "quantidade": 3,
+            "raioOrbita": 35,
+            "raioOrbe": 5,
+            "velocidadeRotacao": 1.0,
+            "intervaloTrocaCor": 500,
+            "paletaCores": [
+                "#ff0000",
+                "#ffe600",
+                "#ff6600"
+            ]
+        },
+        "atributos": {
+            "PROTEÇÃO": "8",
+            "DURAÇÃO": "15"
+        }
+    },
+    {
+        "id": "#E004",
+        "versao": "1.0.0",
+        "nome": "Disco Quasar",
+        "categoria": "escudo",
+        "raridade": "mítica",
+        "desbloqueadaPadrao": false,
+        "tipo": "animado",
+        "velocidadeRotacao": 0.05,
+        "corDiscoInterno": "#fff3cc",
+        "corDiscoMedio": "#ffaa00",
+        "corDiscoExterno": "#ff3300",
+        "sombraCor": "#ffaa00",
+        "shadowBlur": 20,
+        "geometria": {
+            "raioInterno": 20,
+            "raioExterno": 38,
+            "inclinacao": 0.4
+        },
+        "atributos": {
+            "PROTEÇÃO": "10",
+            "DURAÇÃO": "15"
+        }
+    }
+]

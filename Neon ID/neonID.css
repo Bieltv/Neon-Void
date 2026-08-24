@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@600;800&display=swap');
+
+:root {
+    --ink: #11151d;
+    --paper: #f2eee5;
+    --lime: #c6ff3d;
+    --coral: #ff654a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: 'Space Mono', monospace;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .35;
+    background-image: linear-gradient(rgba(17, 21, 29, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(17, 21, 29, .08) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+.id-shell {
+    position: relative;
+    width: min(100%, 560px);
+    padding: clamp(28px, 7vw, 64px);
+    border: 3px solid var(--ink);
+    background: var(--lime);
+    box-shadow: 14px 14px 0 var(--coral);
+}
+
+.eyebrow {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h1 {
+    margin: 36px 0 16px;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.3rem, 8vw, 4.7rem);
+    line-height: .92;
+}
+
+.intro {
+    max-width: 38ch;
+    line-height: 1.6;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+    margin-top: 34px;
+}
+
+label {
+    font-weight: 700;
+    font-size: .8rem;
+}
+
+input,
+button {
+    min-height: 52px;
+    border: 2px solid var(--ink);
+    padding: 12px 14px;
+    font: inherit;
+}
+
+input {
+    background: var(--paper);
+}
+
+button {
+    background: var(--ink);
+    color: var(--lime);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+button:hover {
+    background: var(--coral);
+    color: var(--ink);
+}
+
+.resultado {
+    display: grid;
+    gap: 8px;
+    margin-top: 24px;
+    padding: 16px;
+    border: 2px dashed var(--ink);
+}
+
+.resultado strong {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+}
+
+.link-voltar {
+    display: inline-block;
+    margin-top: 28px;
+    color: var(--ink);
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
+    .id-shell {
+        padding: clamp(20px, 5vw, 40px);
+        box-shadow: 8px 8px 0 var(--coral);
+    }
+
+    h1 {
+        margin: 24px 0 12px;
+    }
+
+    form {
+        margin-top: 24px;
+    }
+
+    input,
+    button {
+        min-height: 48px;
+        padding: 10px 12px;
+    }
+}

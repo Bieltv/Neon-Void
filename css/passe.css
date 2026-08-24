@@ -1,0 +1,476 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace, sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: #08080c;
+    background-image: radial-gradient(circle at 50% 50%, #1a102f 0%, #050508 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.passe-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ===================================================
+   HEADER / CABEÇALHO INTEGRADO
+   =================================================== */
+.header-passe {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #ffd700;
+    padding-bottom: 15px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.titulo-temporada {
+    text-align: center;
+}
+
+.sub-temp {
+    font-size: 0.6rem;
+    color: #00f0ff;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.nome-temp {
+    font-size: 1.3rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+}
+
+.btn-voltar {
+    font-size: 0.65rem;
+    padding: 10px 14px;
+    background-color: #111116;
+    color: #aaaaaa;
+    border: 2px solid #aaaaaa;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-voltar:hover {
+    background-color: #aaaaaa;
+    color: #000;
+    box-shadow: 0 0 10px rgba(170, 170, 170, 0.4);
+}
+
+/* Central de Recursos (Moedas e Diamantes) */
+.central-recursos {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.card-recurso {
+    background-color: #111116;
+    border: 2px solid #333344;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.65rem;
+}
+
+.card-recurso.ouro {
+    border-color: #ffd700;
+    color: #ffd700;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+}
+
+.card-recurso.diamante {
+    border-color: #00f0ff;
+    color: #00f0ff;
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
+}
+
+/* Painel dos Botões "Comprar Passe" e "Coletar Tudo" */
+.painel-acoes {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-acao {
+    font-size: 0.6rem;
+    padding: 10px 14px;
+    background-color: #111116;
+    border: 2px solid #333344;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+/* Botão Comprar Passe (Dourado Neon) */
+.btn-comprar {
+    border-color: #ffd700;
+    color: #ffd700;
+}
+
+.btn-comprar:hover:not(:disabled) {
+    background-color: rgba(255, 215, 0, 0.2);
+    box-shadow: 0 0 15px #ffd700;
+    transform: scale(1.05);
+}
+
+/* Botão Coletar Tudo (Verde Neon) */
+.btn-coletar-tudo {
+    border-color: #00ff66;
+    color: #00ff66;
+}
+
+.btn-coletar-tudo:hover {
+    background-color: rgba(0, 255, 102, 0.2);
+    box-shadow: 0 0 15px #00ff66;
+    transform: scale(1.05);
+}
+
+.btn-acao:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* ===================================================
+   ESTRUTURA DAS TRILHAS (GRÁTIS E PREMIUM)
+   =================================================== */
+.trilha-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.trilha-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.trilha-container::-webkit-scrollbar-thumb {
+    background: #ffd700;
+}
+
+.coluna-passe {
+    background-color: #0d0d15;
+    border: 2px solid #333344;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.coluna-passe.premium {
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
+}
+
+.titulo-coluna {
+    font-size: 0.85rem;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+    color: #aaa;
+}
+
+.titulo-coluna.dourado {
+    color: #ffd700;
+    border-bottom-color: #ffd700;
+}
+
+/* ===================================================
+   CARD DOS NÍVEIS & RECOMPENSAS
+   =================================================== */
+.lista-nivieis {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-nivel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #141420;
+    border: 2px solid #2a2a3d;
+    padding: 12px;
+}
+
+.card-nivel.pacote-rgb {
+    border-color: #00f0ff;
+    animation: bordaRGB 3s infinite linear;
+}
+
+@keyframes bordaRGB {
+    0% {
+        border-color: #ff0000;
+        box-shadow: 0 0 10px #ff0000;
+    }
+
+    33% {
+        border-color: #00ff00;
+        box-shadow: 0 0 10px #00ff00;
+    }
+
+    66% {
+        border-color: #0000ff;
+        box-shadow: 0 0 10px #0000ff;
+    }
+
+    100% {
+        border-color: #ff0000;
+        box-shadow: 0 0 10px #ff0000;
+    }
+}
+
+.num-nivel {
+    font-size: 0.7rem;
+    color: #ffd700;
+}
+
+.info-recompensa {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nome-rec {
+    font-size: 0.65rem;
+    color: #fff;
+}
+
+.tipo-rec {
+    font-size: 0.5rem;
+    color: #888;
+}
+
+.btn-resgatar {
+    font-size: 0.55rem;
+    padding: 8px 10px;
+    border: 2px solid #00ff66;
+    background-color: #00ff66;
+    color: #000;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.btn-resgatar:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.btn-resgatar.resgatado {
+    background-color: #222;
+    color: #555;
+    border-color: #333;
+    cursor: default;
+    transform: none !important;
+}
+
+.btn-resgatar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ===================================================
+   MODAL DA CAIXA DA SORTE
+   =================================================== */
+.modal-caixa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-caixa.escondido,
+.escondido {
+    display: none !important;
+}
+
+.conteudo-caixa {
+    background-color: #11111a;
+    border: 3px solid #ffd700;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 0 25px #ffd700;
+}
+
+.animacao-caixa {
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+.btn-coletar {
+    font-size: 0.7rem;
+    padding: 10px;
+    background-color: #ffd700;
+    color: #000;
+    border: none;
+    cursor: pointer;
+}
+
+/* BARRA DE PROGRESSÃO DE XP */
+.container-xp {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 220px;
+}
+
+.info-xp {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.55rem;
+    color: #00f0ff;
+}
+
+.barra-xp-bg {
+    width: 100%;
+    height: 14px;
+    background-color: #111116;
+    border: 2px solid #00f0ff;
+    padding: 2px;
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.barra-xp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00f0ff, #00ff66);
+    transition: width 0.4s ease;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        align-items: flex-start;
+        overflow: auto;
+    }
+
+    .passe-container {
+        height: auto;
+        min-height: 90vh;
+        max-width: 100%;
+    }
+
+    .header-passe {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .titulo-temporada {
+        text-align: center;
+    }
+
+    .sub-temp {
+        font-size: 0.55rem;
+    }
+
+    .nome-temp {
+        font-size: 1.1rem;
+    }
+
+    .btn-voltar {
+        align-self: flex-start;
+        font-size: 0.6rem;
+        padding: 8px 12px;
+    }
+
+    .central-recursos {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .card-recurso {
+        font-size: 0.6rem;
+        padding: 6px 10px;
+    }
+
+    .painel-acoes {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-acao {
+        font-size: 0.55rem;
+        padding: 8px 12px;
+    }
+
+    .trilha-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .coluna-passe {
+        padding: 12px;
+    }
+
+    .titulo-coluna {
+        font-size: 0.75rem;
+    }
+
+    .card-nivel {
+        padding: 10px;
+    }
+
+    .num-nivel {
+        font-size: 0.65rem;
+    }
+
+    .nome-rec {
+        font-size: 0.6rem;
+    }
+
+    .tipo-rec {
+        font-size: 0.45rem;
+    }
+
+    .btn-resgatar {
+        font-size: 0.5rem;
+        padding: 6px 8px;
+    }
+
+    .container-xp {
+        width: 100%;
+    }
+
+    .conteudo-caixa {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .animacao-caixa {
+        font-size: 1.5rem;
+    }
+
+    .btn-coletar {
+        font-size: 0.65rem;
+        padding: 8px;
+    }
+}

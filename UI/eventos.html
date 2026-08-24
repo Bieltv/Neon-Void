@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Void - Eventos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/eventos.css">
+</head>
+
+<body>
+
+    <!-- BOTÃO DE VOLTAR PARA O MENU -->
+    <button class="btn-voltar" id="btn-voltar">← VOLTAR</button>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <main class="eventos-container">
+
+        <!-- PAINEL ESQUERDO: PROGRESSO / TRILHA DO EVENTO ATIVO -->
+        <section class="painel-evento painel-progresso">
+            <h2 class="titulo-painel">PROGRESSO</h2>
+
+            <!-- Estado 1: Nenhum evento ativo selecionado -->
+            <div class="estado-vazio" id="vazio-progresso">
+                <span class="icone-vazio">🎯</span>
+                <p>NENHUM EVENTO SELECIONADO OU EM ANDAMENTO</p>
+            </div>
+
+            <!-- Estado 2: Trilha de Fases (Injetado via JS caso haja evento ativo) -->
+            <div class="trilha-fases" id="trilha-fases" style="display: none;">
+                <!-- As fases em escadinha serão geradas aqui -->
+            </div>
+            <p class="legenda-recompensas">OS MARCOS DE RECOMPENSA APARECEM NA TRILHA</p>
+        </section>
+
+        <!-- PAINEL DIREITO: LISTA DE EVENTOS -->
+        <section class="painel-evento painel-lista">
+            <h2 class="titulo-painel">EVENTOS DISPONÍVEIS</h2>
+
+            <!-- Estado 1: Nenhum evento disponível no momento -->
+            <div class="estado-vazio" id="vazio-lista">
+                <span class="icone-vazio">⚠️</span>
+                <p>NENHUM EVENTO DISPONÍVEL NO MOMENTO</p>
+            </div>
+
+            <!-- Estado 2: Lista de Cards de Evento (Injetado via JS) -->
+            <div class="cards-lista" id="cards-lista" style="display: none;">
+                <!-- Os cards de evento aparecerão aqui -->
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/eventos.js"></script>
+    <script src="../js/controle-versao.js"></script>
+</body>
+
+</html>

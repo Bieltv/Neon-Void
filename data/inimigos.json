@@ -1,0 +1,25 @@
+{
+    "versao": "1.0.0",
+    "comuns": [
+        {
+            "id": "batedor",
+            "nome": "Batedor Neon",
+            "tamanho": 24,
+            "velocidadeBase": 2.2,
+            "vida": 1,
+            "pontos": 100,
+            "cor": "#ff0055"
+        }
+    ],
+    "bosses": [
+        {
+            "id": "boss_padrao",
+            "nome": "Destruidor Neon",
+            "largura": 140,
+            "altura": 70,
+            "vidaBase": 1000,
+            "corFase1": "#ff0055",
+            "corFase2": "#00f0ff"
+        }
+    ]
+}

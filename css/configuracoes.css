@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace, sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: #08080c;
+    background-image: radial-gradient(circle at 50% 50%, #1a102f 0%, #050508 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.config-container {
+    width: 100%;
+    max-width: 800px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* HEADER */
+.header-config {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #00f0ff;
+    padding-bottom: 15px;
+}
+
+.titulo-config {
+    font-size: 1.2rem;
+    color: #00f0ff;
+    text-shadow: 0 0 10px #00f0ff;
+}
+
+.btn-voltar {
+    font-size: 0.65rem;
+    padding: 10px 14px;
+    background-color: #111116;
+    color: #aaaaaa;
+    border: 2px solid #aaaaaa;
+    cursor: pointer;
+}
+
+.btn-voltar:hover {
+    background-color: #aaaaaa;
+    color: #000;
+}
+
+/* PAINEL E CARDS */
+.painel-config {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.card-config {
+    background-color: #0d0d15;
+    border: 2px solid #2a2a3d;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-config h2 {
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.desc-card {
+    font-size: 0.55rem;
+    color: #888;
+    line-height: 1.4;
+}
+
+/* INPUTS E BOTÕES */
+.grupo-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    flex: 1;
+    background-color: #141420;
+    border: 2px solid #333344;
+    color: #00f0ff;
+    padding: 10px;
+    font-size: 0.7rem;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #00f0ff;
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.btn-acao {
+    font-size: 0.6rem;
+    padding: 12px 16px;
+    background-color: #111116;
+    border: 2px solid #333;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.btn-acao:hover {
+    transform: scale(1.02);
+}
+
+.btn-neon {
+    border-color: #00f0ff;
+    color: #00f0ff;
+}
+
+.btn-neon:hover {
+    background-color: rgba(0, 240, 255, 0.2);
+    box-shadow: 0 0 10px #00f0ff;
+}
+
+/* CARD DE PERIGO (EXCLUIR DADOS) */
+.card-config.perigo {
+    border-color: #ff4444;
+}
+
+.btn-perigo {
+    border-color: #ff4444;
+    color: #ff4444;
+    width: 100%;
+}
+
+.btn-perigo:hover {
+    background-color: rgba(255, 68, 68, 0.2);
+    box-shadow: 0 0 12px #ff4444;
+}
+
+/* PAINEL ADM MODAL/CARD */
+.card-config.adm {
+    border-color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    animation: pulsarADM 2s infinite alternate;
+}
+
+@keyframes pulsarADM {
+    0% {
+        border-color: #ffd700;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+
+    100% {
+        border-color: #ff0055;
+        box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+    }
+}
+
+.titulo-adm {
+    color: #ffd700 !important;
+    text-align: center;
+}
+
+.grid-adm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.item-adm {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item-adm label {
+    font-size: 0.55rem;
+    color: #aaa;
+}
+
+.checkbox-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkbox-item input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.btn-adm {
+    border-color: #ffd700;
+    color: #ffd700;
+}
+
+.btn-adm:hover {
+    background-color: rgba(255, 215, 0, 0.2);
+    box-shadow: 0 0 10px #ffd700;
+}
+
+.escondido {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        align-items: flex-start;
+    }
+
+    .config-container {
+        height: auto;
+        min-height: 90vh;
+        max-width: 100%;
+    }
+
+    .header-config {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .titulo-config {
+        font-size: 1rem;
+    }
+
+    .btn-voltar {
+        align-self: flex-start;
+    }
+
+    .card-config {
+        padding: 15px;
+    }
+
+    .card-config h2 {
+        font-size: 0.7rem;
+    }
+
+    .desc-card {
+        font-size: 0.5rem;
+    }
+
+    .grupo-input {
+        flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        font-size: 0.65rem;
+        padding: 8px;
+    }
+
+    .btn-acao {
+        font-size: 0.55rem;
+        padding: 10px 14px;
+    }
+
+    .grid-adm {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .item-adm label {
+        font-size: 0.5rem;
+    }
+
+    .checkbox-item input {
+        width: 16px;
+        height: 16px;
+    }
+}

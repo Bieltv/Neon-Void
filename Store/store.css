@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap');
+
+:root {
+    --bg: #10151b;
+    --panel: #19232b;
+    --line: #31414a;
+    --text: #edf5ef;
+    --acid: #d9ff58;
+    --aqua: #48d9c3;
+    --orange: #ff9362;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    background: radial-gradient(circle at 90% 0, #244447, transparent 35%), var(--bg);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 5vw;
+    border-bottom: 1px solid var(--line);
+    font: 700 .75rem 'Space Grotesk', sans-serif;
+    letter-spacing: 2px;
+}
+
+.topbar a {
+    color: var(--acid);
+    text-decoration: none;
+}
+
+main {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+    padding: 9vh 0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+h1 {
+    margin: 8px 0 14px;
+    font-size: clamp(2.4rem, 7vw, 5.8rem);
+    line-height: .94;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2.6rem);
+    margin: 8px 0;
+}
+
+.kicker {
+    color: var(--aqua);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.gate {
+    max-width: 620px;
+    padding: clamp(24px, 6vw, 64px);
+    background: var(--acid);
+    color: var(--bg);
+}
+
+.gate .kicker {
+    color: var(--bg);
+}
+
+.gate p {
+    line-height: 1.6;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    margin: 28px 0 16px;
+}
+
+input,
+button {
+    min-height: 48px;
+    border: 1px solid var(--line);
+    padding: 12px 15px;
+    font: inherit;
+}
+
+input {
+    width: 100%;
+    background: #f4f0e8;
+}
+
+button {
+    background: var(--orange);
+    color: var(--bg);
+    cursor: pointer;
+    border-color: var(--orange);
+    font-weight: 700;
+}
+
+button:hover {
+    background: var(--aqua);
+    border-color: var(--aqua);
+}
+
+.gate a {
+    color: var(--bg);
+    font-weight: 700;
+}
+
+.status {
+    min-height: 22px;
+    color: var(--orange);
+    font-weight: 700;
+}
+
+.gate .status {
+    color: var(--bg);
+}
+
+.store-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.saldo {
+    display: grid;
+    gap: 8px;
+    color: var(--acid);
+    font-weight: 700;
+    text-align: right;
+}
+
+.saldo strong {
+    color: var(--aqua);
+}
+
+.guess-panel {
+    display: grid;
+    grid-template-columns: 1fr minmax(260px, .65fr);
+    gap: 24px;
+    padding: 28px;
+    margin-bottom: 70px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+}
+
+.guess-panel p {
+    line-height: 1.6;
+}
+
+.opcoes-palpite {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(72px, 1fr));
+    gap: 12px;
+    align-self: center;
+}
+
+.opcao-palpite {
+    min-height: 112px;
+    border: 2px solid var(--aqua);
+    background: #101c22;
+    color: var(--acid);
+    font: 700 clamp(1.4rem, 4vw, 2rem) 'Space Grotesk', sans-serif;
+}
+
+.opcao-palpite:hover {
+    border-color: var(--acid);
+    background: var(--aqua);
+    color: var(--bg);
+    transform: translateY(-4px);
+}
+
+.guess-panel small {
+    grid-column: 2;
+    color: #a8b7b4;
+}
+
+.section-title {
+    margin-bottom: 22px;
+}
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+}
+
+article {
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+}
+
+article .produto-icon {
+    font-size: 2rem;
+}
+
+article h3 {
+    margin: 28px 0 5px;
+}
+
+article p {
+    margin: 0 0 20px;
+    color: var(--aqua);
+}
+
+article button {
+    margin-top: auto;
+    width: 100%;
+}
+
+article.passe {
+    border-color: var(--orange);
+}
+
+@media (max-width: 650px) {
+    .topbar {
+        padding: 18px;
+        font-size: 0.65rem;
+    }
+
+    main {
+        width: 92%;
+        padding: 7vh 0;
+    }
+
+    .store-heading,
+    .guess-panel {
+        display: block;
+    }
+
+    .saldo {
+        margin-top: 28px;
+        text-align: left;
+    }
+
+    .opcoes-palpite {
+        margin-top: 24px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .guess-panel small {
+        display: block;
+    }
+
+    .catalogo {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    article {
+        min-height: 180px;
+        padding: 16px;
+    }
+
+    .gate {
+        padding: clamp(18px, 4vw, 40px);
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    input {
+        min-height: 44px;
+    }
+
+    button {
+        min-height: 44px;
+    }
+}

@@ -1,0 +1,121 @@
+{
+    "versao": "1.0.0",
+    "destaques": [
+        {
+            "id": "pacote_singularidade",
+            "versao": "1.0.0",
+            "nome": "PACOTE SINGULARIDADE",
+            "tipo": "pacote",
+            "descricao": "Skin evolutiva Singularidade por tempo limitado.",
+            "moeda_tipo": "moeda",
+            "preco": 1500000,
+            "data_inicio": "2026-09-01T00:00:00",
+            "data_fim": "2026-10-15T23:59:59",
+            "skins": [
+                "#N006",
+                "#T004",
+                "#E004"
+            ],
+            "desenho": {
+                "forma": "circulo",
+                "cor": "#05000a",
+                "corBrilho": "#9900ff",
+                "largura": 34,
+                "altura": 34
+            }
+        }
+    ],
+    "roletas_ativas": [
+        {
+            "id_evento": "evento_fenix_2026",
+            "versao": "1.0.0",
+            "nome_evento": "Evento Fênix Mística",
+            "descricao": "Gire a roleta e tente a sorte para obter a Skin Fênix!",
+            "data_inicio": "2026-09-01T00:00:00",
+            "data_fim": "2026-09-16T23:59:59",
+            "custo_giro_diamantes": 15,
+            "custo_giro_5x_diamantes": 75,
+            "recompensas": [
+                {
+                    "id": "#N005",
+                    "nome": "Nave Fênix",
+                    "tipo": "skin_principal",
+                    "chance_porcentagem": 0.4,
+                    "desenho": {
+                        "forma": "losango",
+                        "cor": "#ff3333",
+                        "corBrilho": "rgba(255, 51, 51, 0.8)",
+                        "largura": 35,
+                        "altura": 40
+                    }
+                },
+                {
+                    "id": "premio_moedas_10000",
+                    "nome": "10000 Moedas",
+                    "tipo": "recompensa_comum",
+                    "chance_porcentagem": 4,
+                    "desenho": {
+                        "forma": "circulo",
+                        "cor": "#ffd700",
+                        "corBrilho": "rgba(255, 215, 0, 0.5)",
+                        "largura": 20,
+                        "altura": 20
+                    }
+                },
+                {
+                    "id": "premio_diamantes_50",
+                    "nome": "50 Diamantes",
+                    "tipo": "recompensa_rara",
+                    "chance_porcentagem": 14,
+                    "desenho": {
+                        "forma": "triangulo",
+                        "cor": "#00f0ff",
+                        "corBrilho": "rgba(0, 240, 255, 0.5)",
+                        "largura": 20,
+                        "altura": 20
+                    }
+                },
+                {
+                    "id": "premio_moedas_10",
+                    "nome": "10 Moedas",
+                    "tipo": "recompensa_comum",
+                    "chance_porcentagem": 55,
+                    "desenho": {
+                        "forma": "circulo",
+                        "cor": "#ffd700",
+                        "corBrilho": "rgba(255, 215, 0, 0.5)",
+                        "largura": 20,
+                        "altura": 20
+                    }
+                },
+                {
+                    "id": "premio_moedas_100",
+                    "nome": "100 Moedas",
+                    "tipo": "recompensa_comum",
+                    "chance_porcentagem": 20,
+                    "desenho": {
+                        "forma": "circulo",
+                        "cor": "#ffd700",
+                        "corBrilho": "rgba(255, 215, 0, 0.5)",
+                        "largura": 20,
+                        "altura": 20
+                    }
+                },
+                {
+                    "id": "premio_moedas_500",
+                    "nome": "500 Moedas",
+                    "tipo": "recompensa_comum",
+                    "chance_porcentagem": 6.6,
+                    "desenho": {
+                        "forma": "circulo",
+                        "cor": "#ffd700",
+                        "corBrilho": "rgba(255, 215, 0, 0.5)",
+                        "largura": 20,
+                        "altura": 20
+                    }
+                }
+            ],
+            "premio_principal_id": "#N005"
+        }
+    ]
+}

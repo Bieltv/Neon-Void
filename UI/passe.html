@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Void - Passe de Batalha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/passe.css">
+</head>
+
+<body>
+
+    <div class="passe-container">
+
+        <!-- CABEÇALHO / HEADER -->
+        <header class="header-passe">
+            <button id="btn-voltar" class="btn-voltar">◀ VOLTAR</button>
+
+            <div class="titulo-temporada">
+                <span class="sub-temp">TEMPORADA 1</span>
+                <h1 class="nome-temp">O COMEÇO</h1>
+            </div>
+            <!-- INSIRA DENTRO DO <header class="header-passe"> -->
+            <div class="container-xp">
+                <div class="info-xp">
+                    <span id="texto-nivel">NÍVEL 1</span>
+                    <span id="texto-xp">0 / 200 XP</span>
+                </div>
+                <div class="barra-xp-bg">
+                    <div id="barra-xp-fill" class="barra-xp-fill" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- CONTADORES DE MOEDAS E DIAMANTES -->
+            <div class="central-recursos">
+                <div class="card-recurso ouro">
+                    <span>🪙</span> <span id="qtd-moedas">0</span>
+                </div>
+                <div class="card-recurso diamante">
+                    <span>💎</span> <span id="qtd-diamantes">0</span>
+                </div>
+            </div>
+
+            <!-- BOTÕES DE COMPRA E COLETAR -->
+            <div class="painel-acoes">
+                <button id="btn-comprar-passe" class="btn-acao btn-comprar">COMPRAR PASSE (💎 420)</button>
+                <button id="btn-coletar-tudo" class="btn-acao btn-coletar-tudo">COLETAR TUDO</button>
+            </div>
+        </header>
+
+        <!-- CONTAINER DAS DUAS TRILHAS -->
+        <main class="trilha-container">
+
+            <!-- COLUNA GRÁTIS -->
+            <section class="coluna-passe">
+                <h2 class="titulo-coluna">PASSE GRÁTIS</h2>
+                <div id="lista-gratis" class="lista-nivieis"></div>
+            </section>
+
+            <!-- COLUNA PREMIUM -->
+            <section class="coluna-passe premium">
+                <h2 class="titulo-coluna dourado">PASSE PREMIUM</h2>
+                <div id="lista-premium" class="lista-nivieis"></div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- MODAL DA CAIXA DA SORTE -->
+    <div id="modal-caixa" class="modal-caixa escondido">
+        <div class="conteudo-caixa">
+            <h3>CAIXA DA SORTE</h3>
+            <div class="animacao-caixa">🎁</div>
+            <p id="resultado-caixa">Sorteando moedas...</p>
+            <button id="btn-coletar-caixa" class="btn-coletar escondido">COLETAR</button>
+        </div>
+    </div>
+
+    <script src="../js/conta.js"></script>
+    <script src="../js/economia.js"></script>
+    <script src="../js/passe.js"></script>
+    <script src="../js/controle-versao.js"></script>
+</body>
+
+</html>

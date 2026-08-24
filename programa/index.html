@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Skins - Neon Void</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="editor-container">
+        <!-- ÁREA DO EDITOR DE JSON -->
+        <div class="painel-json">
+            <h2>Código JSON</h2>
+            <textarea id="json-input" placeholder="Cole o seu JSON de skins aqui..."></textarea>
+            <button id="btn-renderizar">🎨 RENDERIZAR SKINS</button>
+        </div>
+
+        <!-- ÁREA DE VISUALIZAÇÃO -->
+        <div class="painel-preview">
+            <!-- NAVEGAÇÃO DAS 3 ABAS -->
+            <div class="abas-navegacao">
+                <button class="btn-aba ativa" data-aba="nave">🚀 NAVES</button>
+                <button class="btn-aba" data-aba="escudo">🛡️ ESCUDOS</button>
+                <button class="btn-aba" data-aba="tiro">⚡ TIROS</button>
+            </div>
+
+            <!-- DISPLAY DE RENDERIZAÇÃO DAS SKINS -->
+            <div id="grid-skins" class="grid-skins">
+                <!-- As skins serão renderizadas aqui -->
+            </div>
+        </div>
+    </div>
+
+    <script src="renderizador.js"></script>
+    <script src="visualizador.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
