@@ -1,7 +1,7 @@
 {
     "versaoAtual": "1.0.0",
     "versaoMinima": "1.0.0",
-    "atualizar": false,
+    "atualizar": true,
     "atualizacaoAgendada": {
         "ativa": true,
         "inicio": "2026-08-31T23:00:00-03:00",
