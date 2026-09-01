@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // === CONSTANTES GLOBAIS ===
+    const LIMITE_RECURSO = 20000000;
+    
     // === CARREGAMENTO ASSÍNCRONO DOS JSONs ===
     async function carregarJsonAssincrono(caminhoRelativo) {
         try {
@@ -13,6 +16,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const bancoPasseJson = await carregarJsonAssincrono('data/passe.json');
     const bancoCaixaJson = await carregarJsonAssincrono('data/caixa.json');
+    
+    // === DEFINIR OPÇÕES DE CAIXA ===
+    const opcoesCaixaSorte = bancoCaixaJson?.opcoes || [50, 100, 150, 200, 250];
 
     // === DETECÇÃO AUTOMÁTICA DO MÊS VIGENTE ===
     // === DETECÇÃO AUTOMÁTICA DE MÊS E ANO ===
